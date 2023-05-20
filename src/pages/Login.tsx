@@ -4,6 +4,7 @@ import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
 export function Login() {
+  // TODO: Fazer hover em todos os links e botões, fazer o focus do input.
   return (
     <div className="flex h-screen w-screen">
       {/* Esquerdo */}
