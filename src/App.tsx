@@ -1,10 +1,13 @@
-import { Button } from '@components/Button';
+import { Input } from '@components/Input';
 
 export function App() {
   return (
     <>
-      <h1 className="bg-red-500 px-2">Hello World</h1>
-      <Button />
+      <img src="/images/logo.svg" alt="Logo da PhotoLink" />
+      <div className="flex flex-col">
+        <Input label="E-mail" />
+        <Input label="Senha" />
+      </div>
     </>
   );
 }

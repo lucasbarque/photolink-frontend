@@ -7,6 +7,21 @@ export default {
     './src/pages/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    colors: {
+      gray: {
+        200: '#E5E7EB',
+        300: '#D1D5DB',
+        400: '#9CA3AF',
+      },
+
+      esmerald: {
+        500: '#66C6BA',
+      },
+
+      slate: {
+        700: '#334155',
+      }
+    },
     extend: {},
   },
   plugins: [],
