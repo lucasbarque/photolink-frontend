@@ -17,6 +17,8 @@ export default {
 
       esmerald: {
         500: '#66C6BA',
+        600: '#0D9488',
+        700: '#0F766E',
       },
 
       slate: {

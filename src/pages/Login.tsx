@@ -4,7 +4,6 @@ import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
 export function Login() {
-  // TODO: Alexandre Fazer hover em todos os links e botões, fazer o focus(dica ring) do input.
   return (
     <div className="flex h-screen w-screen">
       {/* Esquerdo */}
@@ -22,7 +21,7 @@ export function Login() {
           </div>
           <a
             href="#"
-            className="mt-3 w-full text-right text-sm font-normal text-esmerald-500"
+            className="mt-3 w-full text-right text-sm font-normal text-esmerald-500 hover:text-esmerald-700"
           >
             Esqueceu sua senha?
           </a>
@@ -31,16 +30,19 @@ export function Login() {
           </div>
           <p className="mt-8 text-center text-xs text-gray-400">
             Ainda não possui uma conta?{' '}
-            <a href="#" className=" font-semibold text-esmerald-500">
+            <a
+              href="#"
+              className=" font-semibold text-esmerald-500 hover:text-esmerald-700"
+            >
               Criar uma conta
             </a>
           </p>
           <div className="mt-8 flex items-center gap-2">
-            <span className="h-[1px] w-full bg-gray-400" />
+            <span className="h-[1px] w-full bg-gray-300" />
             <span className="whitespace-nowrap text-xs text-gray-400">
               Ou entre com
             </span>
-            <span className="h-[1px] w-full bg-gray-400" />
+            <span className="h-[1px] w-full bg-gray-300" />
           </div>
 
           <div className="mt-2 flex gap-2">
