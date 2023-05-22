@@ -13,6 +13,7 @@ export default {
         200: '#E5E7EB',
         300: '#D1D5DB',
         400: '#9CA3AF',
+        500: '#79818A',
       },
 
       esmerald: {

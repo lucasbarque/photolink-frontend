@@ -14,7 +14,7 @@ export function Button({
   return (
     <button
       className={clsx(
-        'flex w-full items-center justify-center rounded-lg text-base font-bold',
+        'flex w-full items-center justify-center rounded-lg text-base font-semibold',
         // Sizes
         size === 'lg' && 'py-[18px]',
         size === 'sm' && 'py-[10px]',
