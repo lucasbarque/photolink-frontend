@@ -24,6 +24,10 @@ export default {
 
       slate: {
         700: '#334155',
+      },
+
+      red: {
+        500: '#DD0E26'
       }
     },
     extend: {},

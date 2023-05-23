@@ -1,6 +1,8 @@
+import { ButtonHTMLAttributes } from 'react';
+
 import clsx from 'clsx';
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   appearance?: 'primary' | 'secondary';
   size?: 'sm' | 'lg';
   children: React.ReactNode;
@@ -10,6 +12,7 @@ export function Button({
   size = 'lg',
   appearance = 'primary',
   children,
+  ...rest
 }: ButtonProps) {
   return (
     <button
@@ -24,6 +27,7 @@ export function Button({
         appearance === 'secondary' &&
           'border border-esmerald-500 text-esmerald-500 transition duration-75 ease-in-out hover:bg-esmerald-500 hover:text-white ',
       )}
+      {...rest}
     >
       {children}
     </button>
