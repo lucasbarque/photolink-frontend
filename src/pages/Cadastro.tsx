@@ -3,8 +3,8 @@ import { Input } from '@components/Input';
 
 export function Cadastro() {
   return (
-    <div className="flex h-screen bg-gray-200/80">
-      <div className="m-auto w-[25rem] rounded-lg border-2 bg-white p-14 p-14">
+    <div className="flex h-auto bg-gray-200/80">
+      <div className="flex w-screen flex-col justify-center bg-white p-14 sm:m-auto sm:h-auto sm:w-[25rem] sm:rounded-lg sm:border-2">
         <img
           src="/images/logo.svg"
           alt="Logo da PhotoLink"
