@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { BsGoogle } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 
 import { Button } from '@components/Button';
@@ -52,23 +53,23 @@ export function Login() {
             <Input name="email" control={control} label="E-mail" />
             <Input name="password" control={control} label="Senha" />
           </div>
-          <a
-            href="#"
+          <Link
+            to="/forgot-password"
             className="mt-3 w-full text-right text-sm font-normal text-esmerald-500 hover:text-esmerald-700"
           >
             Esqueceu sua senha?
-          </a>
+          </Link>
           <div className="mt-8">
             <Button>Entrar</Button>
           </div>
           <p className="mt-8 text-center text-xs text-gray-400">
             Ainda não possui uma conta?{' '}
-            <a
-              href="#"
+            <Link
+              to="/register"
               className=" font-semibold text-esmerald-500 hover:text-esmerald-700"
             >
               Criar uma conta
-            </a>
+            </Link>
           </p>
           <div className="mt-8 flex items-center gap-2">
             <span className="h-[1px] w-full bg-gray-300" />
@@ -78,7 +79,7 @@ export function Login() {
             <span className="h-[1px] w-full bg-gray-300" />
           </div>
 
-          <div className="mt-2 flex gap-2">
+          <div className="mt-8 flex gap-2">
             <Button size="sm" appearance="secondary">
               <span className="flex items-center gap-2">
                 <BsGoogle size={16} />

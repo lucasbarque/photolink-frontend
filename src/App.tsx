@@ -1,5 +1,14 @@
-import { Cadastro } from '@pages/Cadastro';
+import { ErrorBoundary } from '@errors/ErrorBoundary';
+
+import { Providers } from './providers';
+import MainRoutes from './routes';
 
 export function App() {
-  return <Cadastro />;
+  return (
+    <ErrorBoundary>
+      <Providers>
+        <MainRoutes />
+      </Providers>
+    </ErrorBoundary>
+  );
 }

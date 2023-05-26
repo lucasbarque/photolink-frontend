@@ -36,6 +36,18 @@
       "@styles/*": [
         "./src/styles/*"
       ],
+      "@errors/*": [
+        "./src/errors/*"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
     }
   },
   "include": [
