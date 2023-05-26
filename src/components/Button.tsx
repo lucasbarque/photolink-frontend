@@ -4,23 +4,30 @@ import clsx from 'clsx';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   appearance?: 'primary' | 'secondary';
-  size?: 'sm' | 'lg';
+  size?: 'tn' | 'sm' | 'md' | 'lg';
+  leftIcon?: React.ReactNode;
   children: React.ReactNode;
+  fullSize?: boolean;
 }
 
 export function Button({
   size = 'lg',
   appearance = 'primary',
   children,
+  fullSize = false,
+  leftIcon,
   ...rest
 }: ButtonProps) {
   return (
     <button
       className={clsx(
-        'flex w-full items-center justify-center rounded-lg text-base font-semibold',
+        'text-base flex items-center justify-center gap-3 rounded-lg font-semibold',
+        fullSize && 'w-full',
         // Sizes
-        size === 'lg' && 'py-[18px]',
-        size === 'sm' && 'py-[10px]',
+        size === 'lg' && 'h-14 px-7',
+        size === 'md' && 'h-12 px-5',
+        size === 'sm' && 'h-10 px-4',
+        size === 'tn' && 'h-8 px-3',
         // Appearances
         appearance === 'primary' &&
           'bg-esmerald-500 text-white transition duration-75 ease-in-out hover:bg-esmerald-700',
@@ -29,6 +36,7 @@ export function Button({
       )}
       {...rest}
     >
+      {leftIcon && leftIcon}
       {children}
     </button>
   );
