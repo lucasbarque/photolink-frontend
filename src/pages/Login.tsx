@@ -1,14 +1,47 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { BsGoogle } from 'react-icons/bs';
+import * as yup from 'yup';
 
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
+const loginSchema = yup.object({
+  email: yup
+    .string()
+    .email('E-mail com formato inválido.')
+    .required('Preencha esse campo, por favor.'),
+  password: yup
+    .string()
+    .required('Preencha esse campo, por favor.')
+    .min(6, 'A senha deve ter pelo menos 6 caracteres.'),
+});
+
+interface LoginFormProps {
+  email: string;
+  password: string;
+}
+
 export function Login() {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<LoginFormProps>({
+    resolver: yupResolver(loginSchema),
+  });
+  const onSubmit: SubmitHandler<LoginFormProps> = async (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="flex h-screen w-screen">
       {/* Esquerdo */}
       <div className="w-[420px] px-14">
-        <div className="flex h-full w-full flex-col justify-center">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex h-full w-full flex-col justify-center"
+        >
           <img
             src="/images/logo.svg"
             alt="Logo da PhotoLink"
@@ -16,8 +49,8 @@ export function Login() {
             className="mx-auto"
           />
           <div className="mt-8 flex w-full flex-col gap-3">
-            <Input label="E-mail" />
-            <Input label="Senha" />
+            <Input name="email" control={control} label="E-mail" />
+            <Input name="password" control={control} label="Senha" />
           </div>
           <a
             href="#"
@@ -53,7 +86,7 @@ export function Login() {
               </span>
             </Button>
           </div>
-        </div>
+        </form>
       </div>
       {/* Direito */}
       <img className="flex-1" src="/images/dinossauro.jpg" alt="" />

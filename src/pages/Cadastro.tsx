@@ -5,6 +5,8 @@ import * as yup from 'yup';
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
+import Mask from '../utils/mask';
+
 const registerSchema = yup.object({
   name: yup
     .string()
@@ -19,6 +21,10 @@ const registerSchema = yup.object({
     .string()
     .required('Preencha esse campo, por favor.')
     .min(6, 'A senha deve ter pelo menos 6 caracteres.'),
+  passwordConfirm: yup
+    .string()
+    .oneOf([yup.ref('password')], 'As senhas devem ser iguais')
+    .required('A confirmação de senha é obrigatória'),
 });
 
 interface RegisterFormProps {
@@ -26,6 +32,7 @@ interface RegisterFormProps {
   email: string;
   phone: string;
   password: string;
+  passwordConfirm: string;
 }
 
 export function Cadastro() {
@@ -78,9 +85,11 @@ export function Cadastro() {
           <Input
             label="Celular"
             name="phone"
+            placeholder="(00) 00000-0000"
             error={errors.phone?.message}
+            mask={Mask.phone}
             control={control}
-            placeholder="Digite seu celular"
+            maxLength={15}
           />
           <Input
             label="Senha"
@@ -93,6 +102,7 @@ export function Cadastro() {
             label="Confirmar senha"
             name="confirmPassword"
             control={control}
+            error={errors.passwordConfirm?.message}
             placeholder="Digite novamente sua senha"
           />
         </div>
