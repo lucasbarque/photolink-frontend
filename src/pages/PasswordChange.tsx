@@ -35,43 +35,47 @@ export function PasswordChange() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center  sm:bg-gray-200/80">
+    <div className="flex h-full w-full flex-col items-center justify-center lg:bg-gray-100">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex w-full flex-col justify-center bg-white p-6 sm:m-auto sm:h-auto sm:max-w-[532px] sm:rounded-lg sm:border-2 sm:p-14"
+        className="flex w-full flex-col justify-center bg-white px-10 py-8 sm:m-auto sm:h-auto sm:w-[420px] sm:rounded-lg sm:border sm:p-14"
       >
         <img
           src="/images/logo.svg"
           alt="Logo da PhotoLink"
-          height="2.18rem"
+          width="200"
           className="mx-auto"
         />
-        <h1 className="mt-3 text-center text-[1.375rem] font-medium text-slate-700">
+        <h1 className="mt-8 text-center text-subtitle-medium text-slate-700">
           Cadastre sua nova senha
         </h1>
-        <p className="mt-1 text-center text-xs text-gray-400">
+        <p className="mt-2 text-center font-nunito-sans text-body-3-regular text-gray-400">
           Crie uma senha forte para proteger sua conta.
         </p>
 
-        <div className="mt-3 w-full space-y-3">
+        <div className="mt-8 w-full space-y-4">
           <Input
             label="Senha"
             name="password"
             error={errors.password?.message}
             control={control}
+            type="password"
             placeholder="Digite sua senha"
           />
           <Input
             label="Confirmar senha"
             name="confirmPassword"
             control={control}
+            type="password"
             error={errors.passwordConfirm?.message}
             placeholder="Digite novamente sua senha"
           />
         </div>
 
-        <div className="mt-3">
-          <Button type="submit">Salvar senha</Button>
+        <div className="mt-8">
+          <Button type="submit" fullSize>
+            Salvar senha
+          </Button>
         </div>
       </form>
     </div>

@@ -4,11 +4,13 @@ export interface StatusBadgeProps {
   type: 'success' | 'danger' | 'warning' | 'neutral';
   fullWidth?: boolean;
   title: string;
+  size?: 'sm' | 'md';
 }
 
 export function StatusBadge({
   type = 'neutral',
   fullWidth = false,
+  size = 'md',
   title,
 }: StatusBadgeProps) {
   return (
@@ -29,7 +31,7 @@ export function StatusBadge({
           type === 'neutral' && 'bg-gray-500',
         )}
       />
-      <span className="font-work-sans pl-2 text-body-3-regular text-gray-800">
+      <span className="pl-2 font-work-sans text-body-3-regular text-gray-800">
         {title}
       </span>
     </div>

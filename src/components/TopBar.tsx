@@ -6,13 +6,11 @@ import { Icon } from './Icon';
 
 export function TopBar() {
   return (
-    <div className="border-b-gray-2 flex h-[84px] w-full items-center justify-between border-b-[1px] px-[86px]">
+    <div className="border-b-gray-2 flex h-[84px] w-full items-center justify-between border-b-[1px] px-8 md:px-[86px]">
       <Link to="/galleries">
         <img src="/images/logo.svg" alt="logo" />
       </Link>
-      <div className=" flex items-center gap-5">
-        <Icon icon="bell" size={32} className="text-gray-500" />
-
+      <div className=" hidden items-center gap-5 sm:flex">
         <DropdownMenu>
           <DropdownMenu.Item>
             <DropdownMenu.Trigger>

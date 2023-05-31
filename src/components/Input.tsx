@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 
 import { clsx } from 'clsx';
 import { Controller } from 'react-hook-form';
@@ -21,10 +21,10 @@ export const Input: React.FC<InputProps> = ({
   name,
   control,
   mask,
-  handleViewPassoword,
-  viewPassword,
   ...rest
 }) => {
+  const [viewPassword, setViewPassword] = useState(false);
+
   return (
     <div className="flex w-full flex-col">
       {label && (
@@ -61,7 +61,7 @@ export const Input: React.FC<InputProps> = ({
           <div className="absolute right-3 z-50">
             <button
               type="button"
-              onClick={handleViewPassoword}
+              onClick={() => setViewPassword(!viewPassword)}
               className="flex cursor-pointer items-center justify-center p-1"
             >
               {viewPassword ? (

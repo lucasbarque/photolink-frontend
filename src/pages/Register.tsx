@@ -49,26 +49,28 @@ export function Register() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center  sm:bg-gray-200/80">
+    <div className="flex h-full w-full flex-col items-center justify-center  lg:bg-gray-100">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex w-full flex-col justify-center bg-white p-6 sm:m-auto sm:h-auto sm:max-w-[532px] sm:rounded-lg sm:border-2 sm:p-14"
+        className="flex w-full flex-col justify-center rounded-lg border-gray-200 bg-white px-10 py-8 sm:m-auto sm:w-[420px] lg:border"
       >
-        <img
-          src="/images/logo.svg"
-          alt="Logo da PhotoLink"
-          height="2.18rem"
-          className="mx-auto"
-        />
-        <h1 className="mt-3 text-center text-[1.375rem] font-medium text-slate-700">
+        <Link to="/">
+          <img
+            src="/images/logo.svg"
+            alt="Logo da PhotoLink"
+            width="200"
+            className="mx-auto"
+          />
+        </Link>
+        <h1 className="mt-8 text-center text-subtitle-medium text-slate-700">
           Cadastre sua conta
         </h1>
-        <p className="mt-1 text-center text-xs text-gray-400">
+        <p className="mt-2 text-center font-nunito-sans text-body-3-regular text-gray-400">
           Para você utilizar a plataforma, é necessário realizar um cadastro. É
           rápido!
         </p>
 
-        <div className="mt-3 w-full space-y-3">
+        <div className="mt-8 w-full space-y-4">
           <Input
             label="Nome completo"
             name="name"
@@ -108,15 +110,17 @@ export function Register() {
           />
         </div>
 
-        <div className="mt-3">
-          <Button type="submit">Criar conta</Button>
+        <div className="mt-8">
+          <Button type="submit" fullSize>
+            Criar conta
+          </Button>
         </div>
 
-        <div className="mt-3 text-center text-xs">
+        <div className="mt-6 text-center text-body-3-regular">
           <span className="text-gray-400">Já possui uma conta?</span>
           <Link
             to="/"
-            className="font-semibold text-esmerald-500 hover:cursor-pointer hover:text-esmerald-700"
+            className="text-body-3-semibold text-esmerald-500 hover:cursor-pointer hover:text-esmerald-600"
           >
             {' '}
             Voltar para o login

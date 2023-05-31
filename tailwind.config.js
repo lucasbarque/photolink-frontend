@@ -10,6 +10,13 @@ export default {
     './src/pages/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      'work-sans': ['Work Sans', 'sans-serif'],
+      'nunito-sans': ['Nunito Sans', 'sans-serif'],
+    },
+    boxShadow: {
+      'shadow': '0px 4px 4px rgba(0, 0, 0, 0.25)'
+    },
     colors: {
       white: '#FFFFFF',
       black: '#0C0E0F',
