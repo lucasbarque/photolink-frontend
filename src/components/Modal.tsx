@@ -26,12 +26,13 @@ const ModalWrapper = React.forwardRef<
   React.ComponentProps<typeof DialogPrimitive.Content> & {
     showBackButton?: boolean;
     title?: string;
-    description?: string;
+    description?: React.ReactNode;
     size?: 'sm' | 'md' | 'lg';
     hideCloseButton?: boolean;
     hideActionButton?: boolean;
     closeButtonText?: string;
     actionButtonText?: string;
+    cancelButtonFunction?: () => void;
     actionButtonFunction?: () => void;
   }
 >(
@@ -45,6 +46,7 @@ const ModalWrapper = React.forwardRef<
       hideActionButton = false,
       closeButtonText = 'Fechar',
       actionButtonText = 'Cancelar',
+      cancelButtonFunction,
       actionButtonFunction,
       children,
       ...props
@@ -59,7 +61,7 @@ const ModalWrapper = React.forwardRef<
           'max-w-[592px]': size === 'md',
           'max-w-[796px]': size === 'lg',
         },
-        'border-gray-4 fixed left-1/2 top-1/2 w-full min-w-[388px] max-w-[592px] -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-white p-8 pt-14',
+        'border-gray-4 fixed left-1/2 top-1/2 w-full min-w-[388px] max-w-[592px] -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-white px-8 pb-8 pt-8',
       )}
       ref={forwardedRef}
     >
@@ -77,37 +79,41 @@ const ModalWrapper = React.forwardRef<
       </DialogPrimitive.Cancel>
       {title && (
         <DialogPrimitive.Title asChild>
-          <h3 className="font-work-sans pt-6 text-title-semibold">{title}</h3>
+          <h3 className="font-work-sans text-title-semibold text-gray-800">
+            {title}
+          </h3>
         </DialogPrimitive.Title>
       )}
       {description && (
         <DialogPrimitive.Description asChild>
-          <p
-            className="font-nunito-sans text-gray-7 pt-2 text-body-2-regular"
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+          {description}
         </DialogPrimitive.Description>
       )}
       {children}
       <div className="mt-10 flex justify-end gap-4">
-        {!hideActionButton && (
+        {!hideCloseButton && (
           <div className={clsx({ 'flex w-full flex-col': size === 'sm' })}>
             <Button
               size="md"
               appearance="secondary"
+              style={{ width: '177px' }}
+              onClick={cancelButtonFunction}
+            >
+              {closeButtonText}
+            </Button>
+          </div>
+        )}
+
+        {!hideActionButton && (
+          <div className={clsx({ 'flex w-full flex-col': size === 'sm' })}>
+            <Button
+              size="md"
+              style={{ width: '177px' }}
               onClick={actionButtonFunction}
             >
               {actionButtonText}
             </Button>
           </div>
-        )}
-
-        {!hideCloseButton && (
-          <DialogPrimitive.Cancel asChild>
-            <div className={clsx({ 'flex w-full flex-col': size === 'sm' })}>
-              <Button size="md">{closeButtonText}</Button>
-            </div>
-          </DialogPrimitive.Cancel>
         )}
       </div>
     </DialogPrimitive.Content>

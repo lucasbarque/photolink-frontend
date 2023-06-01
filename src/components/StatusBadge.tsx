@@ -16,9 +16,11 @@ export function StatusBadge({
   return (
     <div
       className={clsx(
-        'flex items-center justify-center rounded-full border border-gray-200 bg-gray-100 px-4 py-[5.5px]',
+        'flex items-center justify-center rounded-full border border-gray-200 bg-gray-100 font-nunito-sans text-small-regular ',
         {
           'w-full': fullWidth,
+          'px-2': size === 'md',
+          'px-4 py-[5.5px]': size === 'sm',
         },
       )}
     >
@@ -31,7 +33,7 @@ export function StatusBadge({
           type === 'neutral' && 'bg-gray-500',
         )}
       />
-      <span className="pl-2 font-work-sans text-body-3-regular text-gray-800">
+      <span className="line-clamp-1 overflow-hidden text-ellipsis pl-2 font-work-sans text-small-regular text-gray-500">
         {title}
       </span>
     </div>

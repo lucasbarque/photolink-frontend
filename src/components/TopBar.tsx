@@ -31,12 +31,7 @@ export function TopBar() {
                 {
                   icon: 'account',
                   linkProps: { href: '#' },
-                  title: 'Meus dados',
-                },
-                {
-                  icon: 'campaign',
-                  linkProps: { href: '#' },
-                  title: 'Minhas galerias',
+                  title: 'Minha conta',
                 },
                 {
                   icon: 'settings',

@@ -1,3 +1,7 @@
+import { useState } from 'react';
+
+import { ButtonIcon } from './ButtonIcon';
+import { ModalDeleteGallery } from './ModalDeleteGallery';
 import { StatusBadge } from './StatusBadge';
 
 interface Gallery {
@@ -5,7 +9,7 @@ interface Gallery {
   title: string;
   countPhotos: number;
   coverUrl: string;
-  state: 'waiting' | 'published';
+  status: 'waiting' | 'published';
 }
 
 export function GalleryCard({
@@ -13,20 +17,48 @@ export function GalleryCard({
   title,
   countPhotos,
   coverUrl,
-  state,
+  status,
 }: Gallery) {
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
   return (
-    <div>
-      <img height={240} src={coverUrl} alt="" className="rounded-md" />
-      <div className="ml-3 mr-3 flex -translate-y-1/2 flex-col items-center rounded-[4px] bg-white py-3 shadow-shadow">
-        <div className="flex gap-2">
-          <div className="text-small-regular text-gray-500">
-            {countPhotos} fotos
-          </div>
-          <StatusBadge type="warning" title="Aguardando publicação" />
+    <>
+      <ModalDeleteGallery
+        isOpen={isModalDeleteOpen}
+        setIsOpen={setIsModalDeleteOpen}
+      />
+
+      <div className="relative">
+        <div className="absolute right-2 top-2 flex gap-1">
+          <ButtonIcon icon="edit" appearance="secondary" />
+          <ButtonIcon
+            icon="trash"
+            appearance="secondary"
+            onClick={() => setIsModalDeleteOpen(true)}
+          />
         </div>
-        <span className="text-body-2-semibold text-slate-700">{title}</span>
+        <img
+          height={240}
+          src={coverUrl}
+          alt=""
+          className="aspect-auto w-full rounded-md object-cover"
+        />
+        <div className="ml-3 mr-3 flex -translate-y-1/2 flex-col items-center overflow-hidden rounded-[4px] bg-white py-3 shadow-shadow">
+          <div className="flex items-center gap-2">
+            <div className="text-small-regular text-gray-500">
+              {countPhotos} fotos
+            </div>
+            <StatusBadge
+              type={status === 'waiting' ? 'warning' : 'success'}
+              title={
+                status === 'waiting' ? 'Aguardando publicação' : 'Publicado'
+              }
+            />
+          </div>
+          <span className="mt-1 line-clamp-1 overflow-hidden text-ellipsis px-5 text-body-2-semibold text-slate-700">
+            {title}
+          </span>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

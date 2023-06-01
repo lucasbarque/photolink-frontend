@@ -18,7 +18,7 @@ interface CreateGalleryFormProps {
   name: string;
 }
 
-export function FormCreateNewGallery({
+export function ModalDeleteGallery({
   isOpen,
   setIsOpen,
 }: FormCreateNewGalleryProps) {
@@ -37,19 +37,31 @@ export function FormCreateNewGallery({
     <Modal open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
       <Modal.Wrapper
         size="md"
-        title="Cadastrar nova galeria"
+        title="Excluir galeria?"
+        description={
+          <div className="pt-2 font-nunito-sans text-body-2-regular text-gray-600">
+            Essa ação não poderá ser desfeita, por isso, leia as seguintes
+            informações antes de prosseguir:
+            <br />
+            <br />
+            <ul className="ml-4 list-disc">
+              <li>
+                Depois de apagada, uma galeria não pode ser acessada através do
+                link compartilhado com seus clientes;
+              </li>
+              <li>Todas as fotos da galeria serão excluídas.</li>
+            </ul>
+          </div>
+        }
         actionButtonText="Salvar"
         actionButtonFunction={() => console.log('action button')}
         cancelButtonFunction={() => setIsOpen(false)}
         closeButtonText="Cancelar"
       >
         <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            label="Nome da galeria"
-            name="gallery-name"
-            placeholder="Digite o nome da galeria"
-            control={control}
-          />
+          <p className="text-body-2-semibold text-slate-700">
+            Tem certeza que você deseja excluir essa galeria?
+          </p>
         </form>
       </Modal.Wrapper>
     </Modal>

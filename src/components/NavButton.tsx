@@ -21,7 +21,7 @@ export const NavButton: React.FC<NavButtonProps> = ({
         'h-10 gap-[6px] pr-4 font-medium text-gray-500 hover:text-gray-600 ':
           kind === 'back-full',
 
-        'border-gray-300 hover:border-none hover:bg-gray-100 focus:border-none focus:bg-gray-200':
+        'border-gray-300 hover:bg-gray-100 focus:border-none focus:bg-gray-200':
           ['back-single', 'back-arrow', 'close'].includes(kind),
 
         'justify-center rounded-lg border ': [
