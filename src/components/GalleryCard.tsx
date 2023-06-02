@@ -49,6 +49,7 @@ export function GalleryCard({
             </div>
             <StatusBadge
               type={status === 'waiting' ? 'warning' : 'success'}
+              size="sm"
               title={
                 status === 'waiting' ? 'Aguardando publicação' : 'Publicado'
               }

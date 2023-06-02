@@ -29,11 +29,18 @@ const ModalWrapper = React.forwardRef<
     description?: React.ReactNode;
     size?: 'sm' | 'md' | 'lg';
     hideCloseButton?: boolean;
-    hideActionButton?: boolean;
-    closeButtonText?: string;
-    actionButtonText?: string;
-    cancelButtonFunction?: () => void;
-    actionButtonFunction?: () => void;
+    dangerButtonText?: string;
+    cancelButton?: {
+      text: string;
+      fn: () => void;
+      appearance: 'secondary' | 'tertiary';
+    };
+    actionButton?: {
+      text: string;
+      fn: () => void;
+      appearance: 'primary' | 'danger';
+    };
+    dangerButtonFunction?: () => void;
   }
 >(
   (
@@ -42,12 +49,8 @@ const ModalWrapper = React.forwardRef<
       title,
       description,
       size = 'sm',
-      hideCloseButton = false,
-      hideActionButton = false,
-      closeButtonText = 'Fechar',
-      actionButtonText = 'Cancelar',
-      cancelButtonFunction,
-      actionButtonFunction,
+      cancelButton,
+      actionButton,
       children,
       ...props
     },
@@ -61,7 +64,7 @@ const ModalWrapper = React.forwardRef<
           'max-w-[592px]': size === 'md',
           'max-w-[796px]': size === 'lg',
         },
-        'border-gray-4 fixed left-1/2 top-1/2 w-full min-w-[388px] max-w-[592px] -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-white px-8 pb-8 pt-8',
+        'border-gray-4 fixed left-1/2 top-1/2 w-[90%]  max-w-[592px] -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-white px-8 pb-8 pt-8 md:w-full',
       )}
       ref={forwardedRef}
     >
@@ -79,7 +82,7 @@ const ModalWrapper = React.forwardRef<
       </DialogPrimitive.Cancel>
       {title && (
         <DialogPrimitive.Title asChild>
-          <h3 className="font-work-sans text-title-semibold text-gray-800">
+          <h3 className="w-4/5 font-work-sans text-subtitle-semibold text-gray-800 md:text-title-semibold">
             {title}
           </h3>
         </DialogPrimitive.Title>
@@ -90,28 +93,29 @@ const ModalWrapper = React.forwardRef<
         </DialogPrimitive.Description>
       )}
       {children}
-      <div className="mt-10 flex justify-end gap-4">
-        {!hideCloseButton && (
-          <div className={clsx({ 'flex w-full flex-col': size === 'sm' })}>
+      <div className="mt-10 flex flex-col justify-end gap-4 sm:flex-row">
+        {cancelButton && (
+          <div className="w-full sm:w-[177px]">
             <Button
               size="md"
-              appearance="secondary"
-              style={{ width: '177px' }}
-              onClick={cancelButtonFunction}
+              fullSize
+              appearance={cancelButton.appearance}
+              onClick={cancelButton.fn}
             >
-              {closeButtonText}
+              {cancelButton.text}
             </Button>
           </div>
         )}
 
-        {!hideActionButton && (
-          <div className={clsx({ 'flex w-full flex-col': size === 'sm' })}>
+        {actionButton && (
+          <div className="w-full sm:w-[177px]">
             <Button
               size="md"
-              style={{ width: '177px' }}
-              onClick={actionButtonFunction}
+              appearance={actionButton.appearance}
+              fullSize
+              onClick={actionButton.fn}
             >
-              {actionButtonText}
+              {actionButton.text}
             </Button>
           </div>
         )}

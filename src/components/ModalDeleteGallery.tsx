@@ -53,17 +53,17 @@ export function ModalDeleteGallery({
             </ul>
           </div>
         }
-        actionButtonText="Salvar"
-        actionButtonFunction={() => console.log('action button')}
-        cancelButtonFunction={() => setIsOpen(false)}
-        closeButtonText="Cancelar"
-      >
-        <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
-          <p className="text-body-2-semibold text-slate-700">
-            Tem certeza que você deseja excluir essa galeria?
-          </p>
-        </form>
-      </Modal.Wrapper>
+        cancelButton={{
+          fn: () => setIsOpen(false),
+          text: 'Cancelar',
+          appearance: 'tertiary',
+        }}
+        actionButton={{
+          fn: () => console.log('danger button'),
+          text: 'Excluir',
+          appearance: 'danger',
+        }}
+      ></Modal.Wrapper>
     </Modal>
   );
 }

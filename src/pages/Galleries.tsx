@@ -16,7 +16,7 @@ interface Gallery {
 }
 
 export function Galleries() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEmptyGallery] = useState(false);
   const [galleries] = useState<Gallery[]>([
     {

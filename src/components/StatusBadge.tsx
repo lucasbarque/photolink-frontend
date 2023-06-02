@@ -19,8 +19,8 @@ export function StatusBadge({
         'flex items-center justify-center rounded-full border border-gray-200 bg-gray-100 font-nunito-sans text-small-regular ',
         {
           'w-full': fullWidth,
-          'px-2': size === 'md',
-          'px-4 py-[5.5px]': size === 'sm',
+          'px-2': size === 'sm',
+          'px-4 py-[5.5px]': size === 'md',
         },
       )}
     >
