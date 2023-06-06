@@ -12,13 +12,7 @@ interface Gallery {
   status: 'waiting' | 'published';
 }
 
-export function GalleryCard({
-  id,
-  title,
-  countPhotos,
-  coverUrl,
-  status,
-}: Gallery) {
+export function GalleryCard({ title, countPhotos, coverUrl, status }: Gallery) {
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
   return (
     <>

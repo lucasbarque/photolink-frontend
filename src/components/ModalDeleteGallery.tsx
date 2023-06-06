@@ -1,8 +1,6 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
-
-import { Input } from './Input';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import { useForm } from 'react-hook-form';
+// import * as yup from 'yup';
 import Modal from './Modal';
 
 interface FormCreateNewGalleryProps {
@@ -10,28 +8,24 @@ interface FormCreateNewGalleryProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-const createGallerySchema = yup.object({
-  name: yup.string().required('Preencha esse campo, por favor.'),
-});
+// const createGallerySchema = yup.object({
+//   name: yup.string().required('Preencha esse campo, por favor.'),
+// });
 
-interface CreateGalleryFormProps {
-  name: string;
-}
+// interface CreateGalleryFormProps {
+//   name: string;
+// }
 
 export function ModalDeleteGallery({
   isOpen,
   setIsOpen,
 }: FormCreateNewGalleryProps) {
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<CreateGalleryFormProps>({
-    resolver: yupResolver(createGallerySchema),
-  });
-  const onSubmit: SubmitHandler<CreateGalleryFormProps> = async (data) => {
-    console.log(data);
-  };
+  // const {} = useForm<CreateGalleryFormProps>({
+  //   resolver: yupResolver(createGallerySchema),
+  // });
+  // const onSubmit: SubmitHandler<CreateGalleryFormProps> = async (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <Modal open={isOpen} onOpenChange={(open) => setIsOpen(open)}>

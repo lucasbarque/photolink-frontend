@@ -1,6 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { BsGoogle, BsInstagram } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 
@@ -24,11 +23,7 @@ interface LoginFormProps {
 }
 
 export function Login() {
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<LoginFormProps>({
+  const { handleSubmit, control } = useForm<LoginFormProps>({
     resolver: yupResolver(loginSchema),
   });
   const onSubmit: SubmitHandler<LoginFormProps> = async (data) => {

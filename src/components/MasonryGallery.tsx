@@ -1,7 +1,6 @@
 import Masonry from '@mui/lab/Masonry';
 import Box from '@mui/material/Box';
 
-import { Icon } from './Icon';
 import { MasonryItem } from './MasonryItem';
 
 interface Image {

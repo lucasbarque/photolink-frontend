@@ -22,11 +22,7 @@ export function FormCreateNewGallery({
   isOpen,
   setIsOpen,
 }: FormCreateNewGalleryProps) {
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<CreateGalleryFormProps>({
+  const { handleSubmit, control } = useForm<CreateGalleryFormProps>({
     resolver: yupResolver(createGallerySchema),
   });
   const onSubmit: SubmitHandler<CreateGalleryFormProps> = async (data) => {
