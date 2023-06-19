@@ -68,12 +68,12 @@ export function Login() {
           <div className="mt-8">
             <Button fullSize>Entrar</Button>
           </div>
-          <p className="mt-8 text-center text-body-3-regular text-gray-500">
+          <p className="mt-8 text-center text-body-2-regular text-gray-500">
             Ainda não possui uma conta?
             <br />
             <Link
               to="/register"
-              className="text-body-3-semibold text-esmerald-500 hover:text-esmerald-600"
+              className="text-body-2-medium text-esmerald-500 hover:text-esmerald-600"
             >
               Criar uma conta
             </Link>

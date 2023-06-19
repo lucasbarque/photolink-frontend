@@ -14,7 +14,7 @@ const Modal = ({ children, overlay = true, ...props }: ModalProps) => (
   <DialogPrimitive.Root {...props}>
     <DialogPrimitive.Portal>
       {overlay && (
-        <DialogPrimitive.Overlay className="fixed inset-0 bg-[#3F4D54] bg-opacity-[48%] backdrop-blur-sm" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-[#3F4D54] bg-opacity-[48%] backdrop-blur-sm" />
       )}
       {children}
     </DialogPrimitive.Portal>
@@ -64,7 +64,7 @@ const ModalWrapper = React.forwardRef<
           'max-w-[592px]': size === 'md',
           'max-w-[796px]': size === 'lg',
         },
-        'border-gray-4 fixed left-1/2 top-1/2 w-[90%]  max-w-[592px] -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-white px-8 pb-8 pt-8 md:w-full',
+        'border-gray-4 fixed left-1/2 top-1/2 z-[99] w-[90%]  max-w-[592px] -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-white px-8 pb-8 pt-8 md:w-full',
       )}
       ref={forwardedRef}
     >
