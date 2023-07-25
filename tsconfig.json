@@ -33,11 +33,20 @@
       "@services/*": [
         "./src/services/*"
       ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
       "@styles/*": [
         "./src/styles/*"
       ],
       "@errors/*": [
         "./src/errors/*"
+      ],
+      "@model/*": [
+        "./src/model/*"
+      ],
+      "@infrastructure/*": [
+        "./src/infrastructure/*"
       ],
       "@providers/*": [
         "./src/providers/*"

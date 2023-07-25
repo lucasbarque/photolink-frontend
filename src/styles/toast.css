@@ -1,0 +1,93 @@
+:root {
+  --toast-width: 360px;
+  --button-bg: transparant;
+  --cancel-button-bg: transparent;
+}
+
+.toast-container .toast .toast-button {
+  line-height: 24px;
+  padding-bottom: 26px;
+}
+.toast-container .toast .toast-button.cancel-button {
+  background-color: transparent !important;
+  color: white;
+}
+.toast-container .toast .toast-button:hover {
+  border: 1px solid white;
+}
+
+.toast-container {
+  right: 50% !important;
+  transform: translateX(calc(var(--toast-width) / 2)) !important;
+}
+
+.toast-container .toast {
+  width: var(--toast-width) !important;
+}
+
+.toast-container .toast-inner {
+  border-radius: 8px !important;
+  position: relative;
+  z-index: 0;
+  overflow: hidden !important;
+  border: 0 !important;
+  padding: 16px !important;
+}
+
+.toast-container .toast-inner::before {
+  content: '';
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
+}
+.toast-container .toast-text {
+  display: flex;
+  align-items: center;
+}
+
+.toast-container .success .toast-text {
+  position: relative;
+  padding-left: 44px;
+}
+.toast-container .success .toast-text::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 28px;
+  height: 28px;
+  background: url('/assets/check.svg') no-repeat center center;
+}
+.toast-container .success {
+  --toast-bg: #162024 !important;
+}
+.toast-container .toast-inner.success::before {
+  background-color: #00d64f;
+}
+
+.toast-container .toast-inner.error::before {
+  background-color: #f2364c;
+}
+
+.toast-container .error {
+  --toast-bg: #162024 !important;
+}
+.toast-container .error .toast-text {
+  position: relative;
+  padding-left: 44px;
+}
+.toast-container .error .toast-text::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 28px;
+  height: 28px;
+  background: url('/assets/subtract.svg') no-repeat center center;
+}

@@ -1,7 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { LoadingStatesEnum } from '@model/loading/states';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
+
+import { useRegister } from '@hooks/network/useRegister';
+import { useToast } from '@hooks/useToast';
 
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
@@ -44,9 +48,18 @@ export function Register() {
   } = useForm<RegisterFormProps>({
     resolver: yupResolver(registerSchema),
   });
+  const { requestState, register } = useRegister();
+  const navigation = useNavigate();
+
   const onSubmit: SubmitHandler<RegisterFormProps> = async (data) => {
-    console.log(data);
+    const response = await register(data);
+
+    if (response?.statusCode === 201) {
+      navigation('/galleries');
+    }
   };
+
+  const loading = requestState === LoadingStatesEnum.PENDING;
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center  lg:bg-gray-100">
@@ -99,19 +112,21 @@ export function Register() {
             name="password"
             error={errors.password?.message}
             control={control}
+            isPassword
             placeholder="Digite sua senha"
           />
           <Input
             label="Confirmar senha"
-            name="confirmPassword"
+            name="passwordConfirm"
             control={control}
+            isPassword
             error={errors.passwordConfirm?.message}
             placeholder="Digite novamente sua senha"
           />
         </div>
 
         <div className="mt-8">
-          <Button type="submit" fullSize>
+          <Button type="submit" disabled={loading} fullSize>
             Criar conta
           </Button>
         </div>

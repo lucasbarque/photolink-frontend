@@ -9,6 +9,10 @@ body,
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply font-work-sans;
   }
@@ -24,4 +28,16 @@ body,
 
 ::-webkit-scrollbar-thumb {
   @apply rounded-full bg-esmerald-500;
+}
+
+@media (max-width: 1023px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 639px) {
+  html {
+    font-size: 87.5%;
+  }
 }

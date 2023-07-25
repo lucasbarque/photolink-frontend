@@ -2,9 +2,12 @@ import { ButtonHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
+import { Loading } from './Loading';
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   appearance?: 'primary' | 'secondary' | 'tertiary' | 'quintinary' | 'danger';
   size?: 'tn' | 'sm' | 'md' | 'lg';
+  isLoading?: boolean;
   leftIcon?: React.ReactNode;
   children: React.ReactNode;
   fullSize?: boolean;
@@ -16,6 +19,7 @@ export function Button({
   children,
   fullSize = false,
   leftIcon,
+  isLoading = false,
   ...rest
 }: ButtonProps) {
   return (
@@ -42,6 +46,15 @@ export function Button({
       {...rest}
     >
       {leftIcon && leftIcon}
+
+      {isLoading && (
+        <Loading
+          className="w-7"
+          spinColor={appearance === 'primary' ? 'black' : 'green'}
+          elipseColor={appearance === 'primary' ? 'success' : 'gray'}
+        />
+      )}
+
       {children}
     </button>
   );

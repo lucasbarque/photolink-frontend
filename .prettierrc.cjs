@@ -12,6 +12,8 @@ module.exports = {
     '^@contexts/(.*)$',
     '^@hooks/(.*)$',
     '^@services/(.*)$',
+    '^@model/(.*)$',
+    '^@infraestructure/(.*)$',
     '^@errors/(.*)$',
     '^@providers/(.*)$',
     '^@routes/(.*)$',
@@ -19,7 +21,6 @@ module.exports = {
     '^@pages/(.*)$',
     '^@styles/(.*)$',
     '^@components/(.*)$',
-
     '^[./]',
   ],
   plugins: [require('prettier-plugin-tailwindcss')],

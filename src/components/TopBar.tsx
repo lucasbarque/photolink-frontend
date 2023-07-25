@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '@hooks/useAuth';
+
 import { Avatar } from './Avatar';
 import DropdownMenu from './DropdownMenu';
 import { Icon } from './Icon';
 
 export function TopBar() {
+  const { signOut } = useAuth();
+
   return (
     <div className="border-b-gray-2 flex h-[84px] w-full items-center justify-between border-b-[1px] px-8 md:px-[86px]">
       <Link to="/galleries">
@@ -40,7 +44,11 @@ export function TopBar() {
                 },
               ]}
               lastDropdownItems={[
-                { icon: 'logout', linkProps: { href: '/' }, title: 'Sair' },
+                {
+                  icon: 'logout',
+                  linkProps: { onClick: signOut },
+                  title: 'Sair',
+                },
               ]}
             />
           </DropdownMenu.Item>

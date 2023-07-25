@@ -3,6 +3,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 
+import { useAuth } from '@hooks/useAuth';
+
+import { LoadingStatesEnum } from '@model/loading/states';
+
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
@@ -23,11 +27,22 @@ interface LoginFormProps {
 }
 
 export function Login() {
-  const { handleSubmit, control } = useForm<LoginFormProps>({
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<LoginFormProps>({
     resolver: yupResolver(loginSchema),
   });
-  const onSubmit: SubmitHandler<LoginFormProps> = async (data) => {
-    console.log(data);
+  const { signIn, loadingState } = useAuth();
+
+  const loading = loadingState === LoadingStatesEnum.PENDING;
+
+  const onSubmit: SubmitHandler<LoginFormProps> = async ({
+    email,
+    password,
+  }) => {
+    await signIn(email, password);
   };
 
   return (
@@ -48,6 +63,7 @@ export function Login() {
             <Input
               name="email"
               control={control}
+              error={errors.email?.message}
               label="E-mail"
               placeholder="Digite seu e-mail"
             />
@@ -55,6 +71,7 @@ export function Login() {
               name="password"
               control={control}
               label="Senha"
+              error={errors.password?.message}
               placeholder="Digite sua senha"
               isPassword
             />
@@ -66,7 +83,9 @@ export function Login() {
             Esqueceu sua senha?
           </Link>
           <div className="mt-8">
-            <Button fullSize>Entrar</Button>
+            <Button fullSize isLoading={loading}>
+              {loading ? 'Carregando' : 'Entrar'}
+            </Button>
           </div>
           <p className="mt-8 text-center text-body-2-regular text-gray-500">
             Ainda não possui uma conta?
