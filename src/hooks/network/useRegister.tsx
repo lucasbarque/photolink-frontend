@@ -2,10 +2,12 @@ import { useState } from 'react';
 
 import RegisterUserService from '@infrastructure/services/register';
 import { RegisterRequestDTO } from '@infrastructure/services/register/dtos/request/RegisterRequestDTO';
-import { HttpStatusCode } from '@model/http/http-client';
-import { LoadingStatesEnum } from '@model/loading/states';
+import { useNavigate } from 'react-router-dom';
 
 import { useToast } from '@hooks/useToast';
+
+import { HttpStatusCode } from '@model/http/http-client';
+import { LoadingStatesEnum } from '@model/loading/states';
 
 export const useRegister = () => {
   const [errorState, setErrorState] = useState<string | undefined>();
@@ -26,7 +28,7 @@ export const useRegister = () => {
       case HttpStatusCode.conflict:
         setRequestState(LoadingStatesEnum.ERROR);
         toast({
-          message: 'Já existe um usuário com esse mesmo e-mail',
+          message: 'Já existe um usuário com esse e-mail cadastrado',
           type: 'error',
         });
         break;

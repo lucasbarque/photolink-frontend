@@ -77,13 +77,19 @@ export function Login() {
             />
           </div>
           <Link
+            data-testid="forgot-password-link"
             to="/forgot-password"
             className="mt-3 w-full text-right text-body-2-medium text-esmerald-500 hover:text-esmerald-600"
           >
             Esqueceu sua senha?
           </Link>
           <div className="mt-8">
-            <Button fullSize isLoading={loading} disabled={loading}>
+            <Button
+              type="submit"
+              fullSize
+              isLoading={loading}
+              disabled={loading}
+            >
               {loading ? 'Carregando' : 'Entrar'}
             </Button>
           </div>
@@ -92,6 +98,7 @@ export function Login() {
             <br />
             <Link
               to="/register"
+              data-testid="register-link"
               className="text-body-2-medium text-esmerald-500 hover:text-esmerald-600"
             >
               Criar uma conta

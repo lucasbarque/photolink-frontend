@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
 import { useRegister } from '@hooks/network/useRegister';
+import { useAuth } from '@hooks/useAuth';
 
 import { LoadingStatesEnum } from '@model/loading/states';
 
@@ -49,13 +50,13 @@ export function Register() {
     resolver: yupResolver(registerSchema),
   });
   const { requestState, register } = useRegister();
-  const navigation = useNavigate();
+  const { signIn } = useAuth();
 
   const onSubmit: SubmitHandler<RegisterFormProps> = async (data) => {
     const response = await register(data);
 
     if (response?.statusCode === 201) {
-      navigation('/galleries');
+      return await signIn(data.email, data.password);
     }
   };
 
@@ -135,6 +136,7 @@ export function Register() {
           <span className="text-gray-400">Já possui uma conta?</span>
           <Link
             to="/"
+            data-testid="voltar-login"
             className="text-body-3-semibold text-esmerald-500 hover:cursor-pointer hover:text-esmerald-600"
           >
             {' '}

@@ -61,6 +61,7 @@ export const Input: React.FC<InputProps> = ({
           <div className="absolute right-3 z-50">
             <button
               type="button"
+              data-testid="reveal-password"
               onClick={() => setViewPassword(!viewPassword)}
               className="flex cursor-pointer items-center justify-center p-1"
             >
@@ -75,7 +76,10 @@ export const Input: React.FC<InputProps> = ({
       </div>
 
       {error && (
-        <div className="mt-[6px] flex items-center gap-[6px] text-red-500">
+        <div
+          data-testid={`error-input-${name}`}
+          className="mt-[6px] flex items-center gap-[6px] text-red-500"
+        >
           {error}
         </div>
       )}
