@@ -7,7 +7,7 @@ import { useToast } from '@hooks/useToast';
 
 import { HttpStatusCode } from '@model/http/http-client';
 import { LoadingStatesEnum } from '@model/loading/states';
-import { LocalStorageKeys, SessionStorageKeys } from '@model/storage/keys';
+import { LocalStorageKeys } from '@model/storage/keys';
 import { IUser } from '@model/user';
 
 export const AuthContext = createContext<IContext>({} as IContext);
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
 
   const [user, setUser] = useState<IUser | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isBlocked, setIsBlocked] = useState(false);
+  const [isBlocked] = useState(false);
   const [loadingState, setLoadingState] = useState<LoadingStatesEnum>(
     LoadingStatesEnum.STAND_BY,
   );

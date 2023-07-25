@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { LoadingStatesEnum } from '@model/loading/states';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
 import { useRegister } from '@hooks/network/useRegister';
-import { useToast } from '@hooks/useToast';
+
+import { LoadingStatesEnum } from '@model/loading/states';
 
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
