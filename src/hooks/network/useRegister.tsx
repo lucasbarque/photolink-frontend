@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import RegisterUserService from '@infrastructure/services/register';
 import { RegisterRequestDTO } from '@infrastructure/services/register/dtos/request/RegisterRequestDTO';
-import { useNavigate } from 'react-router-dom';
 
 import { useToast } from '@hooks/useToast';
 
