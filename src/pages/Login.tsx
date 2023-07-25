@@ -83,7 +83,7 @@ export function Login() {
             Esqueceu sua senha?
           </Link>
           <div className="mt-8">
-            <Button fullSize isLoading={loading}>
+            <Button fullSize isLoading={loading} disabled={loading}>
               {loading ? 'Carregando' : 'Entrar'}
             </Button>
           </div>
