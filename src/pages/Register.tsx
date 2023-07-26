@@ -66,7 +66,7 @@ export function Register() {
     <div className="flex h-full w-full flex-col items-center justify-center  lg:bg-gray-100">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex w-full flex-col justify-center rounded-lg border-gray-200 bg-white px-10 py-8 sm:m-auto sm:w-[420px] lg:border"
+        className="flex w-full flex-col justify-center rounded-lg border-gray-200 bg-white px-10 py-8 sm:m-auto sm:w-[480px] lg:border"
       >
         <Link to="/">
           <img

@@ -1,4 +1,4 @@
 export interface ChangePasswordRequestDTO {
-  password: string;
   token: string;
+  password: string;
 }

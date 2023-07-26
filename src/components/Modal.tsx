@@ -26,21 +26,13 @@ const ModalWrapper = React.forwardRef<
   React.ComponentProps<typeof DialogPrimitive.Content> & {
     showBackButton?: boolean;
     title?: string;
-    description?: React.ReactNode;
+    description?: string;
     size?: 'sm' | 'md' | 'lg';
     hideCloseButton?: boolean;
-    dangerButtonText?: string;
-    cancelButton?: {
-      text: string;
-      fn: () => void;
-      appearance: 'secondary' | 'tertiary';
-    };
-    actionButton?: {
-      text: string;
-      fn: () => void;
-      appearance: 'primary' | 'danger';
-    };
-    dangerButtonFunction?: () => void;
+    hideActionButton?: boolean;
+    closeButtonText?: string;
+    actionButtonText?: string;
+    actionButtonFunction?: () => void;
   }
 >(
   (
@@ -49,8 +41,11 @@ const ModalWrapper = React.forwardRef<
       title,
       description,
       size = 'sm',
-      cancelButton,
-      actionButton,
+      hideCloseButton = false,
+      hideActionButton = false,
+      closeButtonText = 'Fechar',
+      actionButtonText = 'Cancelar',
+      actionButtonFunction,
       children,
       ...props
     },
@@ -89,35 +84,38 @@ const ModalWrapper = React.forwardRef<
       )}
       {description && (
         <DialogPrimitive.Description asChild>
-          {description}
+          <p
+            className="pt-2 font-nunito-sans text-body-2-regular text-gray-700"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </DialogPrimitive.Description>
       )}
       {children}
       <div className="mt-10 flex flex-col justify-end gap-4 sm:flex-row">
-        {cancelButton && (
-          <div className="w-full sm:w-[177px]">
+        {!hideActionButton && (
+          <div className={clsx({ 'flex w-full flex-col': size === 'sm' })}>
             <Button
               size="md"
-              fullSize
-              appearance={cancelButton.appearance}
-              onClick={cancelButton.fn}
+              appearance="secondary"
+              onClick={actionButtonFunction}
             >
-              {cancelButton.text}
+              {actionButtonText}
             </Button>
           </div>
         )}
 
-        {actionButton && (
-          <div className="w-full sm:w-[177px]">
-            <Button
-              size="md"
-              appearance={actionButton.appearance}
-              fullSize
-              onClick={actionButton.fn}
+        {!hideCloseButton && (
+          <DialogPrimitive.Cancel asChild>
+            <div
+              className={clsx('min-w-[164px]', {
+                'flex w-full  flex-col': size === 'sm',
+              })}
             >
-              {actionButton.text}
-            </Button>
-          </div>
+              <Button size="md" fullSize>
+                {closeButtonText}
+              </Button>
+            </div>
+          </DialogPrimitive.Cancel>
         )}
       </div>
     </DialogPrimitive.Content>

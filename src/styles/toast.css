@@ -67,7 +67,7 @@
   --toast-bg: #162024 !important;
 }
 .toast-container .toast-inner.success::before {
-  background-color: #00d64f;
+  background-color: #34d399;
 }
 
 .toast-container .toast-inner.error::before {

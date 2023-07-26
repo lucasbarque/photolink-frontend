@@ -1,4 +1,5 @@
 import ApiFactory from '@infrastructure/http/factories/ApiFactory';
+
 import { HttpResponse } from '@model/http/http-client';
 
 import { ChangePasswordRequestDTO } from './dtos/request/ChangePasswordRequestDTO';
@@ -16,19 +17,18 @@ export default class ForgotPasswordService {
   ): Promise<HttpResponse<ForgotPasswordResponseDTO>> {
     return await this.httpClient.request({
       method: 'post',
-      url: '/users/forgot-password',
+      url: '/forgot-password/token',
       body: data,
     });
   }
 
-  public async checkTokenExists({
-    token,
-  }: CheckTokenExistsRequestDTO): Promise<
-    HttpResponse<CheckTokenExistsResponseDTO>
-  > {
+  public async checkTokenExists(
+    data: CheckTokenExistsRequestDTO,
+  ): Promise<HttpResponse<CheckTokenExistsResponseDTO>> {
     return await this.httpClient.request({
-      method: 'get',
-      url: `/users/check-token-forgot-password/${token}`,
+      method: 'post',
+      url: `/check-token`,
+      body: data,
     });
   }
 
@@ -37,7 +37,7 @@ export default class ForgotPasswordService {
   ): Promise<HttpResponse<ChangePasswordResponseDTO>> {
     return await this.httpClient.request({
       method: 'post',
-      url: '/users/forgot-password-change',
+      url: '/forgot-password/change',
       body: data,
     });
   }

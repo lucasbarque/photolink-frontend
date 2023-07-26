@@ -16,6 +16,7 @@ import { GalleriesEdit } from '@pages/GalleriesEdit';
 import { Login } from '@pages/Login';
 import { PasswordChange } from '@pages/PasswordChange';
 import { Register } from '@pages/Register';
+import { ResetPassword } from '@pages/ResetPassword';
 
 export default function MainRoutes() {
   const { isAuthenticated } = useAuth();
@@ -40,6 +41,7 @@ export default function MainRoutes() {
           <Route index element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/password-change" element={<PasswordChange />} />
         </Route>
 
