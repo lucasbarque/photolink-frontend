@@ -32,31 +32,31 @@ export function ModalDeleteGallery({
       <Modal.Wrapper
         size="md"
         title="Excluir galeria?"
-        description={
-          <div className="pt-2 font-nunito-sans text-body-2-regular text-gray-600">
-            Essa ação não poderá ser desfeita, por isso, leia as seguintes
-            informações antes de prosseguir:
-            <br />
-            <br />
-            <ul className="ml-4 list-disc">
-              <li>
-                Depois de apagada, uma galeria não pode ser acessada através do
-                link compartilhado com seus clientes;
-              </li>
-              <li>Todas as fotos da galeria serão excluídas.</li>
-            </ul>
-          </div>
-        }
-        cancelButton={{
-          fn: () => setIsOpen(false),
-          text: 'Cancelar',
-          appearance: 'tertiary',
-        }}
-        actionButton={{
-          fn: () => console.log('danger button'),
-          text: 'Excluir',
-          appearance: 'danger',
-        }}
+        // description={
+        //   <div className="pt-2 font-nunito-sans text-body-2-regular text-gray-600">
+        //     Essa ação não poderá ser desfeita, por isso, leia as seguintes
+        //     informações antes de prosseguir:
+        //     <br />
+        //     <br />
+        //     <ul className="ml-4 list-disc">
+        //       <li>
+        //         Depois de apagada, uma galeria não pode ser acessada através do
+        //         link compartilhado com seus clientes;
+        //       </li>
+        //       <li>Todas as fotos da galeria serão excluídas.</li>
+        //     </ul>
+        //   </div>
+        // }
+        // cancelButton={{
+        //   fn: () => setIsOpen(false),
+        //   text: 'Cancelar',
+        //   appearance: 'tertiary',
+        // }}
+        // actionButton={{
+        //   fn: () => console.log('danger button'),
+        //   text: 'Excluir',
+        //   appearance: 'danger',
+        // }}
       ></Modal.Wrapper>
     </Modal>
   );

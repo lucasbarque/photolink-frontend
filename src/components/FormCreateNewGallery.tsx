@@ -34,16 +34,16 @@ export function FormCreateNewGallery({
       <Modal.Wrapper
         size="md"
         title="Cadastrar nova galeria"
-        actionButton={{
-          fn: () => console.log('action button'),
-          text: 'Salvar',
-          appearance: 'primary',
-        }}
-        cancelButton={{
-          fn: () => setIsOpen(false),
-          text: 'Cancelar',
-          appearance: 'secondary',
-        }}
+        // actionButton={{
+        //   fn: () => console.log('action button'),
+        //   text: 'Salvar',
+        //   appearance: 'primary',
+        // }}
+        // cancelButton={{
+        //   fn: () => setIsOpen(false),
+        //   text: 'Cancelar',
+        //   appearance: 'secondary',
+        // }}
       >
         <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
           <Input
