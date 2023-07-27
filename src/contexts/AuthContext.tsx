@@ -3,8 +3,6 @@ import { ReactNode, createContext, useEffect, useState } from 'react';
 import AuthService from '@infrastructure/services/auth';
 import { AuthenticateResponseDTO } from '@infrastructure/services/auth/dtos/response/AuthenticateResponseDTO';
 
-import { useToast } from '@hooks/useToast';
-
 import { HttpStatusCode } from '@model/http/http-client';
 import { LoadingStatesEnum } from '@model/loading/states';
 import { LocalStorageKeys } from '@model/storage/keys';
