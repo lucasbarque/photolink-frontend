@@ -14,15 +14,15 @@ export default class AuthService {
   ): Promise<HttpResponse<AuthenticateResponseDTO>> {
     return await this.httpClient.request({
       method: 'post',
-      url: '/sessions',
+      url: '/sessions/login',
       body: data,
     });
   }
 
-  public async me(): Promise<HttpResponse<MeResponseDTO>> {
+  public async getSession(): Promise<HttpResponse<MeResponseDTO>> {
     return await this.httpClient.request({
       method: 'get',
-      url: '/me',
+      url: '/sessions/me',
     });
   }
 }

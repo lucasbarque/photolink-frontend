@@ -37,10 +37,9 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   const [loadingState, setLoadingState] = useState<LoadingStatesEnum>(
     LoadingStatesEnum.STAND_BY,
   );
-  const { toast } = useToast();
 
-  async function getUser() {
-    const response = await service.me();
+  async function getSession() {
+    const response = await service.getSession();
 
     if (response.statusCode === HttpStatusCode.ok) {
       setUser(response.body.user);
@@ -48,37 +47,15 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   }
 
   async function signIn(email: string, password: string) {
-    setLoadingState(LoadingStatesEnum.PENDING);
+    const response = await service.authenticate({ email, password });
 
-    const login = await service.authenticate({ email, password });
-
-    switch (login.statusCode) {
-      case HttpStatusCode.ok:
-        await getUser();
-        setIsAuthenticated(true);
-        setLoadingState(LoadingStatesEnum.DONE);
-        localStorage.setItem(
-          LocalStorageKeys.token,
-          JSON.stringify(login.body.token),
-        );
-        break;
-      case HttpStatusCode.unauthorized:
-        toast({ message: 'E-mail ou senha inválidos.', type: 'error' });
-        setLoadingState(LoadingStatesEnum.ERROR);
-        break;
-
-      case HttpStatusCode.badRequest:
-        toast({ message: 'E-mail ou senha inválidos.', type: 'error' });
-        setLoadingState(LoadingStatesEnum.ERROR);
-        break;
-
-      default:
-        toast({
-          message: 'Ocorreu um erro, tente novamente mais tarde.',
-          type: 'error',
-        });
-        setLoadingState(LoadingStatesEnum.ERROR);
-        break;
+    if (response.body) {
+      setIsAuthenticated(true);
+      localStorage.setItem(
+        LocalStorageKeys.token,
+        JSON.stringify(response.body.token),
+      );
+      await getSession();
     }
   }
 
@@ -90,11 +67,12 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
 
   useEffect(() => {
     const token = localStorage.getItem(LocalStorageKeys.token);
-
     if (token) {
       setIsAuthenticated(true);
+      (async () => {
+        await getSession();
+      })();
     }
-
     setLoadingState(LoadingStatesEnum.DONE);
   }, []);
 

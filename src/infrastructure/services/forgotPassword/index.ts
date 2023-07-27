@@ -17,7 +17,7 @@ export default class ForgotPasswordService {
   ): Promise<HttpResponse<ForgotPasswordResponseDTO>> {
     return await this.httpClient.request({
       method: 'post',
-      url: '/forgot-password/token',
+      url: '/users/forgot-password/get-token',
       body: data,
     });
   }
@@ -27,7 +27,7 @@ export default class ForgotPasswordService {
   ): Promise<HttpResponse<CheckTokenExistsResponseDTO>> {
     return await this.httpClient.request({
       method: 'post',
-      url: `/check-token`,
+      url: '/users/forgot-password/check-token',
       body: data,
     });
   }
@@ -37,7 +37,7 @@ export default class ForgotPasswordService {
   ): Promise<HttpResponse<ChangePasswordResponseDTO>> {
     return await this.httpClient.request({
       method: 'post',
-      url: '/forgot-password/change',
+      url: '/users/forgot-password/change',
       body: data,
     });
   }

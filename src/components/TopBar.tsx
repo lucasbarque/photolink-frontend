@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 
 import { useAuth } from '@hooks/useAuth';
@@ -7,7 +9,7 @@ import DropdownMenu from './DropdownMenu';
 import { Icon } from './Icon';
 
 export function TopBar() {
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
 
   return (
     <div className="border-b-gray-2 flex h-[84px] w-full items-center justify-between border-b-[1px] px-8 md:px-[86px]">
@@ -19,7 +21,7 @@ export function TopBar() {
           <DropdownMenu.Item>
             <DropdownMenu.Trigger>
               <div className="group flex cursor-pointer items-center">
-                <Avatar />
+                <Avatar avatar={user?.avatar_data} />
                 <span className="ml-3 text-body-2-semibold text-gray-700">
                   Lucas Barque
                 </span>
