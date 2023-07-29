@@ -41,6 +41,8 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
 
     if (response.statusCode === HttpStatusCode.ok) {
       setUser(response.body.user);
+    } else {
+      signOut();
     }
   }
 

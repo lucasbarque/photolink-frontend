@@ -30,6 +30,7 @@
     "react-icomoon": "^2.5.7",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.2",
+    "tailwind-variants": "^0.1.13",
     "tailwindcss-animate": "^1.0.5",
     "tailwindcss-radix": "^2.8.0",
     "vercel-toast": "^1.8.0",

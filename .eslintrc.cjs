@@ -10,6 +10,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': 'warn',
-    'no-async-promise-executor': 'off'
+    'no-async-promise-executor': 'off',
+    '@typescript-eslint/no-namespace': 'off'
   },
 }

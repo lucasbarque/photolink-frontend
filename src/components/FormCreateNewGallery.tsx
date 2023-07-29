@@ -1,7 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 
+import { useGallery } from '@hooks/network/useGallery';
+import { useAuth } from '@hooks/useAuth';
+
+import { LoadingStatesEnum } from '@model/loading/states';
+
+import { Button } from './Button';
 import { Input } from './Input';
 import Modal from './Modal';
 
@@ -11,22 +18,38 @@ interface FormCreateNewGalleryProps {
 }
 
 const createGallerySchema = yup.object({
-  name: yup.string().required('Preencha esse campo, por favor.'),
+  title: yup.string().required('Preencha esse campo, por favor.'),
 });
 
 interface CreateGalleryFormProps {
-  name: string;
+  title: string;
 }
 
 export function FormCreateNewGallery({
   isOpen,
   setIsOpen,
 }: FormCreateNewGalleryProps) {
-  const { handleSubmit, control } = useForm<CreateGalleryFormProps>({
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<CreateGalleryFormProps>({
     resolver: yupResolver(createGallerySchema),
   });
-  const onSubmit: SubmitHandler<CreateGalleryFormProps> = async (data) => {
-    console.log(data);
+  const { user } = useAuth();
+  const { requestState, create } = useGallery();
+  const navigate = useNavigate();
+
+  const loading = requestState === LoadingStatesEnum.PENDING;
+
+  const onSubmit: SubmitHandler<CreateGalleryFormProps> = async ({ title }) => {
+    if (user && user.id) {
+      const response = await create({ title, userId: user.id });
+
+      if (response?.body.id) {
+        navigate(`/galleries/${response.body.id}`);
+      }
+    }
   };
 
   return (
@@ -34,23 +57,35 @@ export function FormCreateNewGallery({
       <Modal.Wrapper
         size="md"
         title="Cadastrar nova galeria"
-        // actionButton={{
-        //   fn: () => console.log('action button'),
-        //   text: 'Salvar',
-        //   appearance: 'primary',
-        // }}
-        // cancelButton={{
-        //   fn: () => setIsOpen(false),
-        //   text: 'Cancelar',
-        //   appearance: 'secondary',
-        // }}
+        firstButton={
+          <Button
+            size="md"
+            fullSize
+            appearance="secondary"
+            onClick={() => setIsOpen(false)}
+          >
+            Cancelar
+          </Button>
+        }
+        secondButton={
+          <Button
+            size="md"
+            fullSize
+            onClick={handleSubmit(onSubmit)}
+            isLoading={loading}
+            disabled={loading}
+          >
+            Criar galeria
+          </Button>
+        }
       >
         <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
           <Input
-            label="Nome da galeria"
-            name="gallery-name"
-            placeholder="Digite o nome da galeria"
+            label="Título da galeria"
+            name="title"
+            placeholder="Digite o título para a galeria"
             control={control}
+            error={errors.title?.message}
           />
         </form>
       </Modal.Wrapper>
