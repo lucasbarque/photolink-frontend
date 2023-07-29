@@ -1,10 +1,11 @@
+import axios from 'axios';
+
 import {
   HttpResponse,
   IHttpClient,
   IHttpRequest,
 } from '@model/http/http-client';
 import { LocalStorageKeys } from '@model/storage/keys';
-import axios from 'axios';
 
 const { VITE_BACKEND_URL } = import.meta.env;
 

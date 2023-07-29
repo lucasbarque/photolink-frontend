@@ -11,6 +11,6 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
     'no-async-promise-executor': 'off',
-    '@typescript-eslint/no-namespace': 'off'
+    '@typescript-eslint/no-namespace': 'off',
   },
-}
+};
