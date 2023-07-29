@@ -46,6 +46,7 @@ export function Galleries() {
           {!isEmptyGallery && (
             <Button
               size="md"
+              disabled
               leftIcon={<Icon icon="add-image" size={24} />}
               onClick={() => setIsModalOpen(true)}
             >

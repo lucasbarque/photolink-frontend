@@ -68,9 +68,26 @@ export function ForgotPassword() {
           size="md"
           title="Instruções enviadas por e-mail"
           description={`Caso exista uma conta cadastrada em <strong>${email}</strong>, vamos te enviar um e-mail com as instruções para redefinir sua senha. <br /> <br /> Caso não encontre o e-mail, procure em sua caixa de spam ou solicite o reenvio.`}
-          actionButtonText="Reenviar e-mail"
-          actionButtonFunction={handleRetrieveSendEmail}
-          closeButtonText="Entendi"
+          firstButton={
+            <Button
+              onClick={handleRetrieveSendEmail}
+              fullSize
+              size="md"
+              appearance="secondary"
+            >
+              Reenviar e-mail
+            </Button>
+          }
+          secondButton={
+            <Button
+              onClick={() => setIsModalOpen(false)}
+              fullSize
+              size="md"
+              appearance="primary"
+            >
+              Entendi
+            </Button>
+          }
         />
       </Modal>
 

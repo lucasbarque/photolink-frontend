@@ -1,4 +1,4 @@
-import { GeneralErrorsDTO } from '@infrastructure/services/general/dtos/GeneralErrorsDTO';
+import { GeneralErrorsDTO } from '@infrastructure/services/defaults/dtos/GeneralErrorsDTO';
 
 export interface SetPasswordResponseDTO extends GeneralErrorsDTO {
   completed?: boolean;

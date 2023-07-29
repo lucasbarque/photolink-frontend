@@ -1,4 +1,4 @@
-import { GeneralErrorsDTO } from '@infrastructure/services/general/dtos/GeneralErrorsDTO';
+import { GeneralErrorsDTO } from '@infrastructure/services/defaults/dtos/GeneralErrorsDTO';
 
 import { IUser } from '@model/user';
 

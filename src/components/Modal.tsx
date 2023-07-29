@@ -3,7 +3,6 @@ import React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-alert-dialog';
 import clsx from 'clsx';
 
-import { Button } from './Button';
 import { NavButton } from './NavButton';
 
 export type ModalProps = React.ComponentProps<typeof DialogPrimitive.Root> & {
@@ -30,12 +29,6 @@ const ModalWrapper = React.forwardRef<
     size?: 'sm' | 'md' | 'lg';
     firstButton?: React.ReactNode;
     secondButton?: React.ReactNode;
-    // hideCloseButton?: boolean;
-    // hideActionButton?: boolean;
-    // firstButtonText?: string;
-    // firstButtonFunction?: () => void;
-    // secondButtonText?: string;
-    // secondButtonFuncion?: () => void;
   }
 >(
   (
@@ -44,12 +37,6 @@ const ModalWrapper = React.forwardRef<
       title,
       description,
       size = 'sm',
-      // hideCloseButton = false,
-      // hideActionButton = false,
-      // secondButtonText = 'Fechar',
-      // firstButtonText = 'Cancelar',
-      // firstButtonFunction,
-      // secondButtonFuncion,
       firstButton,
       secondButton,
       children,

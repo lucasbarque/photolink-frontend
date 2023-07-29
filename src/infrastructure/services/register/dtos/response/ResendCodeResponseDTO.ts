@@ -1,3 +1,3 @@
-import { GeneralErrorsDTO } from '@infrastructure/services/general/dtos/GeneralErrorsDTO';
+import { GeneralErrorsDTO } from '@infrastructure/services/defaults/dtos/GeneralErrorsDTO';
 
 export type ResendCodeResponseDTO = GeneralErrorsDTO;

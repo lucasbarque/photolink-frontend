@@ -17,14 +17,14 @@ const button = tv({
       true: 'w-full',
     },
     appearance: {
-      primary:
-        'bg-esmerald-500 text-white transition duration-75 ease-in-out hover:bg-esmerald-700',
+      primary: 'bg-esmerald-500 text-white hover:bg-esmerald-700',
       secondary:
-        'border border-esmerald-500 text-esmerald-500 transition duration-75 ease-in-out hover:bg-esmerald-500 hover:text-white',
+        'border border-esmerald-500 text-esmerald-500 hover:bg-esmerald-500 hover:text-white',
       tertiary:
         'border border-gray-200 text-slate-700 transition duration-300 hover:bg-gray-100',
+      quintinary: 'bg-gray-800 text-white hover:bg-gray-700 focus:bg-black',
       danger:
-        'border border-red-500 text-red-500 transition duration-75 ease-in-out hover:bg-red-500/5 hover:text-red-800',
+        'border border-red-500 text-red-500 hover:bg-red-500/5 hover:text-red-800',
     },
   },
   defaultVariants: {
