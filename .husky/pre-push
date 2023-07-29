@@ -1,0 +1,44 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# bash echo color
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+BLUE='\033[1;36m'
+BOLD='\033[1;37m'
+NC='\033[0m'
+
+echo "\n 🚧🏗️  ${BOLD}Checando formatação, lint e tipagem do seu projeto antes do pushing${NC}"
+
+# Check Prettier standards
+yarn run check-format ||
+(
+    echo "\n ❌🟨 Prettier Check ${RED}Falhou${NC}. 🟨❌\n Rode ${BLUE}yarn format${NC}, e tente refazer seu commit.\n";
+    false;
+)
+
+# Check ESLint Standards
+yarn run check-lint ||
+(
+    echo "\n ❌🟪 ESLint Check ${RED}Falhou${NC}. 🟪❌\n Realize as correções listadas abaixo, adicione as alterações em um commit e tente novamente.\n"
+    false;
+)
+
+# Check tsconfig standards
+yarn run check-types ||
+(
+    echo "\n ❌🟦 Type check ${RED}Falhou${NC}. 🟦❌\n Realize as correções listadas abaixo.\n"
+    false;
+)
+
+# If everything passes... Now we can build
+echo "🔥🚀 ${BOLD}Tudo pronto... Agora você pode fazer build.${NC} 🚀🔥"
+
+yarn run build ||
+(
+    echo "\n ❌🟩 Build ${RED}Falhou${NC}. 🟩❌\n Veja os erros para descobrir o motivo.\n"
+    false;
+)
+
+# If everything passes... Now we can commit
+echo "✅✅ ${GREEN}Build completa... Estou fazendo push agora.${NC} ✅✅\n"
