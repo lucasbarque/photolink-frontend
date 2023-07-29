@@ -74,6 +74,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
       })();
     }
     setLoadingState(LoadingStatesEnum.DONE);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
