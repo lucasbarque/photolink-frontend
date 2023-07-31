@@ -41,4 +41,4 @@ yarn run build ||
 )
 
 # If everything passes... Now we can commit
-echo "✅✅ ${GREEN}Build completa... Estou fazendo push agora.${NC} ✅✅\n"
+echo "✅✅ ${GREEN}Build feita com sucesso... Realizando push...${NC} ✅✅\n"

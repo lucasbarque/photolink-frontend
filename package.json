@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "photolink-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,6 +28,7 @@
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "clsx": "^1.2.1",
+    "date-fns": "^2.30.0",
     "pg-promise": "^11.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

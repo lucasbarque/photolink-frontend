@@ -22,7 +22,7 @@ export const useSession = () => {
 
     switch (response.statusCode) {
       case HttpStatusCode.ok:
-        return response.body;
+        return response;
 
       case HttpStatusCode.unauthorized:
         toast({ message: 'E-mail ou senha inválidos.', type: 'error' });

@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
@@ -177,22 +177,7 @@
 <a name='L112'></a><a href='#L112'>112</a>
 <a name='L113'></a><a href='#L113'>113</a>
 <a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a>
-<a name='L120'></a><a href='#L120'>120</a>
-<a name='L121'></a><a href='#L121'>121</a>
-<a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L115'></a><a href='#L115'>115</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -203,8 +188,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -303,22 +288,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
@@ -326,7 +296,6 @@
 import * as DialogPrimitive from '@radix-ui/react-alert-dialog';
 import clsx from 'clsx';
 &nbsp;
-import { Button } from './Button';
 import { NavButton } from './NavButton';
 &nbsp;
 export type ModalProps = React.ComponentProps&lt;typeof DialogPrimitive.Root&gt; &amp; {
@@ -349,31 +318,20 @@ const ModalWrapper = React.forwardRef&lt;
   React.ComponentProps&lt;typeof DialogPrimitive.Content&gt; &amp; {
     showBackButton?: boolean;
     title?: string;
-    description?: React.ReactNode;
+    description?: string;
     size?: 'sm' | 'md' | 'lg';
-    hideCloseButton?: boolean;
-    dangerButtonText?: string;
-    cancelButton?: {
-      text: string;
-      fn: () =&gt; void;
-      appearance: 'secondary' | 'tertiary';
-    };
-    actionButton?: {
-      text: string;
-      fn: () =&gt; void;
-      appearance: 'primary' | 'danger';
-    };
-    dangerButtonFunction?: () =&gt; void;
+    firstButton?: React.ReactNode;
+    secondButton?: React.ReactNode;
   }
 &gt;(
   (
     {
-      showBackButton = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
+      showBackButton = false,
       title,
       description,
       size = <span class="branch-0 cbranch-no" title="branch not covered" >'sm',</span>
-      cancelButton,
-      actionButton,
+      firstButton,
+      secondButton,
       children,
       ...props
     },
@@ -391,7 +349,7 @@ const ModalWrapper = React.forwardRef&lt;
       )}
       ref={forwardedRef}
     &gt;
-      {<span class="branch-0 cbranch-no" title="branch not covered" >showBackButton &amp;&amp; (</span>
+      {showBackButton &amp;&amp; (
         &lt;DialogPrimitive.Action asChild&gt;
           &lt;div className="absolute left-8 top-6"&gt;
             &lt;NavButton kind="back-single" size="md" /&gt;
@@ -403,43 +361,40 @@ const ModalWrapper = React.forwardRef&lt;
           &lt;NavButton kind="close" /&gt;
         &lt;/div&gt;
       &lt;/DialogPrimitive.Cancel&gt;
-      {<span class="branch-0 cbranch-no" title="branch not covered" >title &amp;&amp; (</span>
+      {title &amp;&amp; (
         &lt;DialogPrimitive.Title asChild&gt;
           &lt;h3 className="w-4/5 font-work-sans text-subtitle-semibold text-gray-800 md:text-title-semibold"&gt;
             {title}
           &lt;/h3&gt;
         &lt;/DialogPrimitive.Title&gt;
       )}
-      {<span class="branch-0 cbranch-no" title="branch not covered" >description &amp;&amp; (</span>
+      {description &amp;&amp; (
         &lt;DialogPrimitive.Description asChild&gt;
-          {description}
+          &lt;p
+            className="pt-2 font-nunito-sans text-body-2-regular text-gray-700"
+            dangerouslySetInnerHTML={{ __html: description }}
+          /&gt;
         &lt;/DialogPrimitive.Description&gt;
       )}
       {children}
       &lt;div className="mt-10 flex flex-col justify-end gap-4 sm:flex-row"&gt;
-        {<span class="branch-0 cbranch-no" title="branch not covered" >cancelButton &amp;&amp; (</span>
-          &lt;div className="w-full sm:w-[177px]"&gt;
-            &lt;Button
-              size="md"
-              fullSize
-              appearance={cancelButton.appearance}
-              onClick={cancelButton.fn}
-            &gt;
-              {cancelButton.text}
-            &lt;/Button&gt;
+        {firstButton &amp;&amp; (
+          &lt;div
+            className={clsx('min-w-[164px]', {
+              'flex w-full flex-col': size === 'sm',
+            })}
+          &gt;
+            {firstButton}
           &lt;/div&gt;
         )}
 &nbsp;
-        {<span class="branch-0 cbranch-no" title="branch not covered" >actionButton &amp;&amp; (</span>
-          &lt;div className="w-full sm:w-[177px]"&gt;
-            &lt;Button
-              size="md"
-              appearance={actionButton.appearance}
-              fullSize
-              onClick={actionButton.fn}
-            &gt;
-              {actionButton.text}
-            &lt;/Button&gt;
+        {secondButton &amp;&amp; (
+          &lt;div
+            className={clsx('min-w-[164px]', {
+              'flex w-full flex-col': size === 'sm',
+            })}
+          &gt;
+            {secondButton}
           &lt;/div&gt;
         )}
       &lt;/div&gt;
@@ -457,7 +412,7 @@ export default Modal;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-25T16:04:37.606Z
+                at 2023-07-31T02:19:25.531Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

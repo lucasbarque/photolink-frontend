@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">5.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/18</span>
+                <span class='fraction'>1/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">5.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/18</span>
+                <span class='fraction'>1/18</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,8 +115,7 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,30 +125,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -162,7 +160,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,38 +171,37 @@
 &nbsp;
 import RegisterUserService from '@infrastructure/services/register';
 import { RegisterRequestDTO } from '@infrastructure/services/register/dtos/request/RegisterRequestDTO';
-import { useNavigate } from 'react-router-dom';
 &nbsp;
 import { useToast } from '@hooks/useToast';
 &nbsp;
 import { HttpStatusCode } from '@model/http/http-client';
 import { LoadingStatesEnum } from '@model/loading/states';
 &nbsp;
-export const useRegister = () =&gt; {
-  const [errorState, setErrorState] = useState&lt;string | undefined&gt;();
-  const [requestState, setRequestState] = useState(LoadingStatesEnum.STAND_BY);
-  const { toast } = useToast();
+export const useRegister = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+  const [errorState, setErrorState] = <span class="cstat-no" title="statement not covered" >useState&lt;string | undefined&gt;();</span>
+  const [requestState, setRequestState] = <span class="cstat-no" title="statement not covered" >useState(LoadingStatesEnum.STAND_BY);</span>
+  const { toast } = <span class="cstat-no" title="statement not covered" >useToast();</span>
 &nbsp;
-  const service = new RegisterUserService();
+  const service = <span class="cstat-no" title="statement not covered" >new RegisterUserService();</span>
 &nbsp;
-  const register = async (data: RegisterRequestDTO) =&gt; {
-    setRequestState(LoadingStatesEnum.PENDING);
-    const response = await service.register(data);
+  const register = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (d</span>ata: RegisterRequestDTO) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setRequestState(LoadingStatesEnum.PENDING);</span>
+    const response = <span class="cstat-no" title="statement not covered" >await service.register(data);</span>
 &nbsp;
-    switch (response.statusCode) {
+<span class="cstat-no" title="statement not covered" >    switch (response.statusCode) {</span>
       case HttpStatusCode.created:
-        setRequestState(LoadingStatesEnum.DONE);
-        return response;
+<span class="cstat-no" title="statement not covered" >        setRequestState(LoadingStatesEnum.DONE);</span>
+<span class="cstat-no" title="statement not covered" >        return response;</span>
 &nbsp;
       case HttpStatusCode.conflict:
-        setRequestState(LoadingStatesEnum.ERROR);
-        toast({
+<span class="cstat-no" title="statement not covered" >        setRequestState(LoadingStatesEnum.ERROR);</span>
+<span class="cstat-no" title="statement not covered" >        toast({</span>
           message: 'Já existe um usuário com esse e-mail cadastrado',
           type: 'error',
         });
-        break;
+<span class="cstat-no" title="statement not covered" >        break;</span>
 &nbsp;
-<span class="branch-2 cbranch-no" title="branch not covered" >      default:</span>
+      default:
 <span class="cstat-no" title="statement not covered" >        setRequestState(LoadingStatesEnum.ERROR);</span>
 <span class="cstat-no" title="statement not covered" >        toast({</span>
           message:
@@ -215,7 +212,7 @@ export const useRegister = () =&gt; {
     }
   };
 &nbsp;
-  return {
+<span class="cstat-no" title="statement not covered" >  return {</span>
     errorState,
     requestState,
     setErrorState,
@@ -229,7 +226,7 @@ export const useRegister = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-25T16:04:37.606Z
+                at 2023-07-31T02:19:25.531Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

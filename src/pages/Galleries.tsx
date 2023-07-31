@@ -38,7 +38,7 @@ export function Galleries() {
       <FormCreateNewGallery isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
 
       <TopBar />
-      <div className="flex-1 bg-gray-100 px-8 py-6 md:px-[86px] md:py-12">
+      <div className="h-full flex-1 bg-gray-100 px-8 py-6 md:px-[86px] md:py-12">
         <div className="flex flex-col items-center justify-between sm:flex-row">
           <h1 className="text-title-semibold text-slate-700">
             Minhas galerias
