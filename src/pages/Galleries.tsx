@@ -14,7 +14,6 @@ import { TopBar } from '@components/TopBar';
 
 export function Galleries() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEmptyGallery] = useState(false);
   const [galleries, setGalleries] = useState<IGallery[]>([]);
 
   const { list } = useGallery();
@@ -30,6 +29,7 @@ export function Galleries() {
         }
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -37,13 +37,13 @@ export function Galleries() {
       <FormCreateNewGallery isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
 
       <TopBar />
-      <div className="flex-1 bg-gray-100 px-8 py-6 md:px-[86px] md:py-12">
+      <div className="h-full flex-1 bg-gray-100 px-8 py-6 md:px-[86px] md:py-12">
         <div className="flex flex-col items-center justify-between sm:flex-row">
           <h1 className="text-title-semibold text-slate-700">
             Minhas galerias
           </h1>
 
-          {!isEmptyGallery && (
+          {galleries.length > 0 && (
             <Button
               size="md"
               disabled
@@ -56,7 +56,7 @@ export function Galleries() {
         </div>
         <div className="mt-5">
           {galleries.length === 0 ? (
-            <EmptyGallery />
+            <EmptyGallery setIsModalOpen={() => setIsModalOpen(true)} />
           ) : (
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
               {galleries.map((gallery) => (

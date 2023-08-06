@@ -116,7 +116,7 @@ export function ResetPassword() {
             </div>
           </>
         ) : (
-          <>
+          <div data-testid="expired-message">
             <h1 className="mt-8 text-center text-subtitle-medium text-slate-700">
               Esse link expirou
             </h1>
@@ -130,7 +130,7 @@ export function ResetPassword() {
                 Reenviar e-mail
               </Button>
             </Link>
-          </>
+          </div>
         )}
       </form>
     </div>

@@ -3,6 +3,8 @@ import { ReactNode, createContext, useEffect, useState } from 'react';
 import AuthService from '@infrastructure/services/auth';
 import { AuthenticateResponseDTO } from '@infrastructure/services/auth/dtos/response/AuthenticateResponseDTO';
 
+import { useSession } from '@hooks/network/useSession';
+
 import { HttpStatusCode } from '@model/http/http-client';
 import { LoadingStatesEnum } from '@model/loading/states';
 import { LocalStorageKeys } from '@model/storage/keys';
@@ -27,6 +29,7 @@ export interface IContext {
 }
 
 export const AuthProvider = ({ children }: IAuthProvider) => {
+  const { authenticate } = useSession();
   const service = new AuthService();
 
   const [user, setUser] = useState<IUser | null>(null);
@@ -47,9 +50,9 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   }
 
   async function signIn(email: string, password: string) {
-    const response = await service.authenticate({ email, password });
+    const response = await authenticate({ email, password });
 
-    if (response.body) {
+    if (response?.body) {
       setIsAuthenticated(true);
       localStorage.setItem(
         LocalStorageKeys.token,
@@ -74,6 +77,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
       })();
     }
     setLoadingState(LoadingStatesEnum.DONE);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,7 +122,23 @@
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,8 +152,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,7 +211,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from 'react';
+&nbsp;
+import { NavLink } from 'react-router-dom';
 &nbsp;
 import { ButtonIcon } from './ButtonIcon';
 import { ModalDeleteGallery } from './ModalDeleteGallery';
@@ -191,12 +225,22 @@ interface Gallery {
   id: string;
   title: string;
   countPhotos: number;
-  coverUrl: string;
-  status: 'waiting' | 'published';
+  coverUrl?: string;
+  status: 'DRAFT' | 'PUBLISHED';
 }
 &nbsp;
-export function GalleryCard({ title, countPhotos, coverUrl, status }: Gallery) {
-  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
+export function <span class="fstat-no" title="function not covered" >GalleryCard({</span>
+  id,
+  title,
+  countPhotos,
+  coverUrl,
+  status,
+}: Gallery) {
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const coverImg = <span class="cstat-no" title="statement not covered" >coverUrl</span>
+    ? `https://drive.google.com/uc?export=view&amp;id=${coverUrl}`
+    : '/assets/placeholder-galleries.svg';
+&nbsp;
   return (
     &lt;&gt;
       &lt;ModalDeleteGallery
@@ -206,36 +250,40 @@ export function GalleryCard({ title, countPhotos, coverUrl, status }: Gallery) {
 &nbsp;
       &lt;div className="relative"&gt;
         &lt;div className="absolute right-2 top-2 flex gap-1"&gt;
-          &lt;ButtonIcon icon="edit" appearance="secondary" /&gt;
+          &lt;NavLink to={`/galleries/${id}`}&gt;
+            &lt;ButtonIcon icon="edit" appearance="secondary" /&gt;
+          &lt;/NavLink&gt;
           &lt;ButtonIcon
             icon="trash"
             appearance="secondary"
             onClick={<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etIsModalDeleteOpen(true)}</span>
           /&gt;
         &lt;/div&gt;
-        &lt;img
-          height={240}
-          src={coverUrl}
-          alt=""
-          className="aspect-auto w-full rounded-md object-cover"
-        /&gt;
-        &lt;div className="ml-3 mr-3 flex -translate-y-1/2 flex-col items-center overflow-hidden rounded-[4px] bg-white py-3 shadow-shadow"&gt;
-          &lt;div className="flex items-center gap-2"&gt;
-            &lt;div className="text-small-regular text-gray-500"&gt;
-              {countPhotos} fotos
+        &lt;NavLink to={`/galleries/${id}`}&gt;
+          &lt;img
+            height={240}
+            src={coverImg}
+            alt=""
+            className="aspect-auto h-[300px] w-full rounded-md object-cover"
+          /&gt;
+          &lt;div className="ml-3 mr-3 flex -translate-y-1/2 flex-col items-center overflow-hidden rounded-[4px] bg-white py-3 shadow-shadow"&gt;
+            &lt;div className="flex items-center gap-2"&gt;
+              &lt;div className="text-small-regular text-gray-500"&gt;
+                {countPhotos} fotos
+              &lt;/div&gt;
+              &lt;StatusBadge
+                type={status === 'DRAFT' ? 'warning' : 'success'}
+                size="sm"
+                title={
+                  status === 'DRAFT' ? 'Aguardando publicação' : 'Publicado'
+                }
+              /&gt;
             &lt;/div&gt;
-            &lt;StatusBadge
-              type={status === 'waiting' ? 'warning' : 'success'}
-              size="sm"
-              title={
-                status === 'waiting' ? 'Aguardando publicação' : 'Publicado'
-              }
-            /&gt;
+            &lt;span className="mt-1 line-clamp-1 overflow-hidden text-ellipsis px-5 text-body-2-semibold text-slate-700"&gt;
+              {title}
+            &lt;/span&gt;
           &lt;/div&gt;
-          &lt;span className="mt-1 line-clamp-1 overflow-hidden text-ellipsis px-5 text-body-2-semibold text-slate-700"&gt;
-            {title}
-          &lt;/span&gt;
-        &lt;/div&gt;
+        &lt;/NavLink&gt;
       &lt;/div&gt;
     &lt;/&gt;
   );
@@ -247,7 +295,7 @@ export function GalleryCard({ title, countPhotos, coverUrl, status }: Gallery) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-25T16:04:37.606Z
+                at 2023-07-31T02:19:25.531Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

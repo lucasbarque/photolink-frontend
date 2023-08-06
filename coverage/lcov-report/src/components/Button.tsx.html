@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.74% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>21/31</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -124,30 +124,23 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,62 +176,99 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ButtonHTMLAttributes } from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ComponentProps } from 'react';
 &nbsp;
-import clsx from 'clsx';
+import { VariantProps, tv } from 'tailwind-variants';
 &nbsp;
 import { Loading } from './Loading';
 &nbsp;
-interface ButtonProps extends ButtonHTMLAttributes&lt;HTMLButtonElement&gt; {
-  appearance?: 'primary' | 'secondary' | 'tertiary' | 'quintinary' | 'danger';
-  size?: 'tn' | 'sm' | 'md' | 'lg';
-  isLoading?: boolean;
-  leftIcon?: React.ReactNode;
-  children: React.ReactNode;
-  fullSize?: boolean;
-}
+const button = tv({
+  base: 'text-base flex items-center justify-center gap-3 rounded-lg font-semibold transition duration-300 ease-in-out',
+  variants: {
+    size: {
+      lg: 'h-14 px-7',
+      md: 'h-12 px-5',
+      sm: 'h-10 px-4',
+      tn: 'h-8 px-3 !text-body-3-regular',
+    },
+    fullSize: {
+      true: 'w-full',
+    },
+    appearance: {
+      primary: 'bg-esmerald-500 text-white hover:bg-esmerald-700',
+      secondary:
+        'border border-esmerald-500 text-esmerald-500 hover:bg-esmerald-500 hover:text-white',
+      tertiary:
+        'border border-gray-200 text-slate-700 transition duration-300 hover:bg-gray-100',
+      quintinary: 'bg-gray-800 text-white hover:bg-gray-700 focus:bg-black',
+      danger:
+        'border border-red-500 text-red-500 hover:bg-red-500/5 hover:text-red-800',
+    },
+  },
+  defaultVariants: {
+    size: 'lg',
+    appearance: 'primary',
+    fullSize: false,
+  },
+});
+&nbsp;
+export type ButtonProps = ComponentProps&lt;'button'&gt; &amp;
+  VariantProps&lt;typeof button&gt; &amp; {
+    leftIcon?: React.ReactNode;
+    isLoading?: boolean;
+  };
 &nbsp;
 export function Button({
-  size = 'lg',
-  appearance = 'primary',
   children,
-  fullSize = false,
+  className,
+  size,
+  fullSize,
+  appearance,
   leftIcon,
   isLoading = false,
-  ...rest
+  ...props
 }: ButtonProps) {
   return (
     &lt;button
-      className={clsx(
-        'text-base flex items-center justify-center gap-3 rounded-lg font-semibold transition duration-300 ease-in-out',
-        fullSize &amp;&amp; 'w-full',
-        // Sizes
-        size === 'lg' &amp;&amp; 'h-14 px-7',
-        size === 'md' &amp;&amp; 'h-12 px-5',
-        size === 'sm' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'h-10 px-4',</span>
-        size === 'tn' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'h-8 px-3 !text-body-3-regular',</span>
-        // Appearances
-        appearance === 'primary' &amp;&amp;
-          'bg-esmerald-500 text-white transition duration-75 ease-in-out hover:bg-esmerald-700',
-        appearance === 'secondary' &amp;&amp;
-<span class="branch-1 cbranch-no" title="branch not covered" >          'border border-esmerald-500 text-esmerald-500 transition duration-75 ease-in-out hover:bg-esmerald-500 hover:text-white ',</span>
-        appearance === 'tertiary' &amp;&amp;
-<span class="branch-1 cbranch-no" title="branch not covered" >          'border border-gray-200 text-slate-700 transition duration-300 hover:bg-gray-100',</span>
-        appearance === 'quintinary' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >'bg-gray-800 text-white hover:bg-black',</span>
-        appearance === 'danger' &amp;&amp;
-<span class="branch-1 cbranch-no" title="branch not covered" >          'border border-red-500 text-red-500 transition duration-75 ease-in-out hover:bg-red-500/5 hover:text-red-800 ',</span>
-      )}
-      {...rest}
+      className={button({ size, fullSize, appearance, className })}
+      {...props}
     &gt;
-      {leftIcon &amp;&amp; leftIcon}
+      {leftIcon &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >leftIcon}</span>
 &nbsp;
       {isLoading &amp;&amp; (
         &lt;Loading
           className="w-7"
-          spinColor={appearance === 'primary' ? 'black' : 'green'}
-          elipseColor={appearance === 'primary' ? 'success' : 'gray'}
+          spinColor={appearance === 'primary' ? <span class="branch-0 cbranch-no" title="branch not covered" >'black' : '</span>green'}
+          elipseColor={appearance === 'primary' ? <span class="branch-0 cbranch-no" title="branch not covered" >'success' : '</span>gray'}
         /&gt;
       )}
 &nbsp;
@@ -253,7 +283,7 @@ export function Button({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-25T16:04:37.606Z
+                at 2023-07-31T02:19:25.531Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

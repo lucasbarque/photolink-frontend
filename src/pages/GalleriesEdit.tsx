@@ -1,7 +1,7 @@
 import { Button } from '@components/Button';
 import { CopyLink } from '@components/CopyLink';
+import { FormUploadImages } from '@components/FormUploadImages';
 import { Icon } from '@components/Icon';
-import { MasonryGallery } from '@components/MasonryGallery';
 import { StatusBadge } from '@components/StatusBadge';
 import { TopBar } from '@components/TopBar';
 
@@ -23,9 +23,9 @@ export function GalleriesEdit() {
             <div className="relative">
               <div className="absolute inset-0 rounded-md bg-black/20" />
               <img
-                src="https://cdn-sites-images.46graus.com/files/photos/065b7aa1/169d6508-153b-4b32-89a4-e52420503315/raw_7812-1700x1133.jpg"
+                src="/assets/placeholder-galleries.svg"
                 alt=""
-                className="rounded-md"
+                className="h-[188px] w-full rounded-md object-cover"
               />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                 <Button size="sm" appearance="quintinary">
@@ -51,10 +51,11 @@ export function GalleriesEdit() {
               <p className="text-body-3-medium">Criada em 19 Abril 2023</p>
             </div>
           </div>
-          <div className="flex-1 rounded-lg border border-gray-300 bg-white px-8 py-7 ">
+          <div className="h-fit flex-1 rounded-lg border border-gray-300 bg-white px-8 py-7 ">
             <h2 className="text-body-1-medium">254 Fotos</h2>
-            <div className="mt-3 h-[600px] overflow-y-auto pb-60">
-              <MasonryGallery
+            <div className="mt-3 overflow-y-auto">
+              <FormUploadImages />
+              {/* <MasonryGallery
                 images={[
                   {
                     id: '1',
@@ -92,7 +93,7 @@ export function GalleriesEdit() {
                     title: 'IMG_2112',
                   },
                 ]}
-              />
+              /> */}
             </div>
           </div>
         </div>

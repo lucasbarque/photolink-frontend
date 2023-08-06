@@ -1,7 +1,11 @@
 import { Button } from './Button';
 import { Icon } from './Icon';
 
-export function EmptyGallery() {
+interface EmptyGalleryProps {
+  setIsModalOpen: () => void;
+}
+
+export function EmptyGallery({ setIsModalOpen }: EmptyGalleryProps) {
   return (
     <div className="flex flex-col items-center rounded-md border border-gray-200 p-5 lg:flex-row">
       <img src="/images/empty-gallery.svg" alt="" className="w-[487px]" />
@@ -15,7 +19,11 @@ export function EmptyGallery() {
             forma rápida e fácil
           </p>
           <div className="mt-3 flex flex-col items-center">
-            <Button size="sm" leftIcon={<Icon icon="add-image" size={16} />}>
+            <Button
+              size="sm"
+              leftIcon={<Icon icon="add-image" size={16} />}
+              onClick={setIsModalOpen}
+            >
               Criar nova galeria
             </Button>
           </div>

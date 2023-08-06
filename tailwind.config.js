@@ -15,7 +15,7 @@ export default {
       'nunito-sans': ['Nunito Sans', 'sans-serif'],
     },
     boxShadow: {
-      'shadow': '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      shadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     },
     colors: {
       white: '#FFFFFF',
@@ -31,7 +31,7 @@ export default {
         800: '#162024',
       },
       yellow: {
-        500: '#FFB013'
+        500: '#FFB013',
       },
 
       green: {
@@ -40,7 +40,7 @@ export default {
 
       red: {
         500: '#F2364C',
-        800: '#DD0E26'
+        800: '#DD0E26',
       },
 
       esmerald: {
@@ -52,7 +52,6 @@ export default {
       slate: {
         700: '#334155',
       },
-
     },
     fontSize: {
       'display-1': [
@@ -243,4 +242,4 @@ export default {
     extend: {},
   },
   plugins: [tailwindcssAnimate, tailwindcssRadix()],
-}
+};
