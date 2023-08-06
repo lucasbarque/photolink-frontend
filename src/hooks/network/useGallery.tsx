@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GalleryService from '@infrastructure/services/gallery';
 import { CreateGalleryRequestDTO } from '@infrastructure/services/gallery/dtos/request/CreateGalleryRequestDTO';
 import { ListGalleryRequestDTO } from '@infrastructure/services/gallery/dtos/request/ListGalleryRequestDTO';
+import { UploadPhotosRequestDTO } from '@infrastructure/services/gallery/dtos/request/UploadPhotosRequestDTO';
 
 import { useToast } from '@hooks/useToast';
 
@@ -63,11 +64,40 @@ export const useGallery = () => {
     }
   };
 
+  const uploadPhotos = async (data: UploadPhotosRequestDTO) => {
+    setRequestState(LoadingStatesEnum.PENDING);
+
+    const response = await service.uploadPhotos(data);
+
+    switch (response.statusCode) {
+      case HttpStatusCode.ok:
+        return response;
+
+      case HttpStatusCode.notFound:
+        toast({
+          message:
+            'Galeria não encontrada. Por favor, tente novamente mais tarde.',
+          type: 'error',
+        });
+        setRequestState(LoadingStatesEnum.ERROR);
+        break;
+
+      default:
+        toast({
+          message: 'Ocorreu um erro, tente novamente mais tarde.',
+          type: 'error',
+        });
+        setRequestState(LoadingStatesEnum.ERROR);
+        break;
+    }
+  };
+
   return {
     errorState,
     requestState,
     setErrorState,
     create,
     list,
+    uploadPhotos,
   };
 };

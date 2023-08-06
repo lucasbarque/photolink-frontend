@@ -14,7 +14,6 @@ import { TopBar } from '@components/TopBar';
 
 export function Galleries() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEmptyGallery] = useState(false);
   const [galleries, setGalleries] = useState<IGallery[]>([]);
 
   const { list } = useGallery();
@@ -44,7 +43,7 @@ export function Galleries() {
             Minhas galerias
           </h1>
 
-          {!isEmptyGallery && (
+          {galleries.length > 0 && (
             <Button
               size="md"
               disabled
@@ -57,7 +56,7 @@ export function Galleries() {
         </div>
         <div className="mt-5">
           {galleries.length === 0 ? (
-            <EmptyGallery />
+            <EmptyGallery setIsModalOpen={() => setIsModalOpen(true)} />
           ) : (
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
               {galleries.map((gallery) => (

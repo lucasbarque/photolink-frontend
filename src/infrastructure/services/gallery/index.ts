@@ -4,6 +4,7 @@ import { HttpResponse } from '@model/http/http-client';
 
 import { CreateGalleryRequestDTO } from './dtos/request/CreateGalleryRequestDTO';
 import { ListGalleryRequestDTO } from './dtos/request/ListGalleryRequestDTO';
+import { UploadPhotosRequestDTO } from './dtos/request/UploadPhotosRequestDTO';
 import { ListGalleryResponseDTO } from './dtos/response/ListGalleryResponseDTO';
 
 export default class GalleryService {
@@ -34,6 +35,21 @@ export default class GalleryService {
       method: 'post',
       url: '/galleries/create',
       body: data,
+    });
+  }
+
+  public async uploadPhotos({
+    id,
+    socketId,
+    photos,
+  }: UploadPhotosRequestDTO): Promise<HttpResponse> {
+    return await this.httpClient.request({
+      method: 'post',
+      url: `/galleries/upload-photos/${id}`,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: { photos, socketId },
     });
   }
 }
