@@ -15,7 +15,7 @@ export function FormUploadImages() {
   const [isDragActive, setIsDragActive] = useState(false);
   const [photosTotal, setPhotosTotal] = useState(0);
   const [photosSize, setPhotosSize] = useState(0);
-  const [photosUploaded, setPhotosUploaded] = useState(1);
+  const [photosUploaded, _] = useState(1);
 
   const { uploadPhotos } = useGallery();
   const { id } = useParams();
