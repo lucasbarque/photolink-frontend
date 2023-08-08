@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import GalleryService from '@infrastructure/services/gallery';
 import { CreateGalleryRequestDTO } from '@infrastructure/services/gallery/dtos/request/CreateGalleryRequestDTO';
+import { GetByIdGalleryRequestDTO } from '@infrastructure/services/gallery/dtos/request/GetByIdGalleryRequestDTO';
 import { ListGalleryRequestDTO } from '@infrastructure/services/gallery/dtos/request/ListGalleryRequestDTO';
 import { UploadPhotosRequestDTO } from '@infrastructure/services/gallery/dtos/request/UploadPhotosRequestDTO';
 
@@ -16,6 +17,25 @@ export const useGallery = () => {
   const { toast } = useToast();
 
   const service = new GalleryService();
+
+  const getById = async (data: GetByIdGalleryRequestDTO) => {
+    setRequestState(LoadingStatesEnum.PENDING);
+
+    const response = await service.getById(data);
+
+    switch (response.statusCode) {
+      case HttpStatusCode.ok:
+        return response.body;
+
+      default:
+        toast({
+          message: 'Ocorreu um erro, tente novamente mais tarde.',
+          type: 'error',
+        });
+        setRequestState(LoadingStatesEnum.ERROR);
+        break;
+    }
+  };
 
   const list = async (data: ListGalleryRequestDTO) => {
     setRequestState(LoadingStatesEnum.PENDING);
@@ -98,6 +118,7 @@ export const useGallery = () => {
     setErrorState,
     create,
     list,
+    getById,
     uploadPhotos,
   };
 };

@@ -1,3 +1,11 @@
+import { useEffect, useState } from 'react';
+
+import { useParams } from 'react-router-dom';
+
+import { useGallery } from '@hooks/network/useGallery';
+
+import { IGallery } from '@model/gallery';
+
 import { Button } from '@components/Button';
 import { CopyLink } from '@components/CopyLink';
 import { FormUploadImages } from '@components/FormUploadImages';
@@ -6,6 +14,20 @@ import { StatusBadge } from '@components/StatusBadge';
 import { TopBar } from '@components/TopBar';
 
 export function GalleriesEdit() {
+  const [gallery, setGallery] = useState<IGallery | null>(null);
+  const { id } = useParams();
+  const { getById } = useGallery();
+
+  useEffect(() => {
+    (async () => {
+      if (id) {
+        const response = await getById({ galleryId: id });
+        if (response) {
+          setGallery(response);
+        }
+      }
+    })();
+  }, []);
   return (
     <div className="flex h-screen w-full flex-col overflow-hidden">
       <TopBar />
@@ -33,7 +55,7 @@ export function GalleriesEdit() {
                 </Button>
               </div>
             </div>
-            <h2 className="mt-4 text-subtitle-medium">Ensaio Lucas e Hemily</h2>
+            <h2 className="mt-4 text-subtitle-medium">{gallery?.title}</h2>
 
             <div className="mt-4">
               <StatusBadge
