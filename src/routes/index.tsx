@@ -10,6 +10,8 @@ import {
 
 import { useAuth } from '@hooks/useAuth';
 
+import { ConfigMyAccount } from '@pages/ConfigMyAccount';
+import { ConfigSecurity } from '@pages/ConfigSecurity';
 import { ForgotPassword } from '@pages/ForgotPassword';
 import { Galleries } from '@pages/Galleries';
 import { GalleriesEdit } from '@pages/GalleriesEdit';
@@ -43,6 +45,8 @@ export default function MainRoutes() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/password-change" element={<PasswordChange />} />
+          <Route path="/config-myaccount" element={<ConfigMyAccount />} />
+          <Route path="/config-security" element={<ConfigSecurity />} />
         </Route>
 
         {/* Protected Routes */}
