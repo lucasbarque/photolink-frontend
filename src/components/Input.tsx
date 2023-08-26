@@ -50,7 +50,7 @@ export const Input: React.FC<InputProps> = ({
                   'bg-[#FCEDEF] ring-2 ring-red-500': error,
                   'focus:ring-esmerald-500': !error,
                 },
-                'border-gray-4 hover:border-gray-3 relative w-full rounded-md border px-4 py-3 outline-0 transition-all duration-200 placeholder:text-[#A0A6AD] focus:ring-2',
+                'border-gray-4 hover:border-gray-3 relative h-11 w-full rounded-md border px-4 outline-0 transition-all duration-200 placeholder:text-[#A0A6AD] focus:ring-2',
               )}
               {...rest}
             />

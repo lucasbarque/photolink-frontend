@@ -58,7 +58,7 @@ export function ConfigSecurity() {
           {/* Menu Esquerdo */}
           <div className="h-fit w-full max-w-sm rounded-lg border border-gray-300 bg-white px-8 py-7">
             <Link
-              to="/"
+              to="/config-myaccount"
               className="text-body-2-medium text-slate-700 hover:cursor-pointer hover:text-esmerald-500"
             >
               Minha Conta
@@ -66,7 +66,7 @@ export function ConfigSecurity() {
 
             <hr className="mb-4 mt-4" />
             <Link
-              to="/"
+              to="/config-security"
               className="text-body-2-semibold text-esmerald-600 hover:cursor-pointer hover:text-esmerald-500"
             >
               Acesso e Segurança
@@ -80,13 +80,13 @@ export function ConfigSecurity() {
                 Acesso e Segurança
               </h2>
 
-              <div className="flex gap-24">
+              <div className="flex max-w-[490px] justify-between gap-4">
                 <div>
                   <h3 className="text-body-3-medium text-gray-500">Senha</h3>
                   <p className="text-slate-700">••••••••••</p>
                 </div>
 
-                <Button size="sm" appearance="secondary">
+                <Button size="md" appearance="secondary">
                   Alterar
                 </Button>
               </div>
@@ -99,12 +99,12 @@ export function ConfigSecurity() {
               </h2>
 
               <h3 className="mb-3 max-w-md text-body-2-regular text-gray-500">
-                Ao excluir sua conta, todos as galerias que você enviou serão
+                Ao excluir sua conta, todas as galerias que você enviou serão
                 excluídas da plataforma, seus dados serão apagados e sua conta
                 será desativada permanentemente.
               </h3>
 
-              <Button size="sm" appearance="danger">
+              <Button size="md" appearance="danger">
                 Desativar minha conta
               </Button>
             </div>
