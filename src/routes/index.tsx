@@ -45,9 +45,9 @@ export default function MainRoutes() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/password-change" element={<PasswordChange />} />
-          <Route path="/config-myaccount" element={<ConfigMyAccount />} />
-          <Route path="/config-security" element={<ConfigSecurity />} />
         </Route>
+        <Route path="/config-myaccount" element={<ConfigMyAccount />} />
+        <Route path="/config-security" element={<ConfigSecurity />} />
 
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>

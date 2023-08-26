@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   const service = new AuthService();
 
   const [user, setUser] = useState<IUser | null>(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [isBlocked] = useState(false);
   const [loadingState, setLoadingState] = useState<LoadingStatesEnum>(
     LoadingStatesEnum.STAND_BY,
@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
 
     if (response.statusCode === HttpStatusCode.ok) {
       setUser(response.body.user);
+      setIsAuthenticated(true);
     } else {
       signOut();
     }
@@ -69,13 +70,9 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem(LocalStorageKeys.token);
-    if (token) {
-      setIsAuthenticated(true);
-      (async () => {
-        await getSession();
-      })();
-    }
+    (async () => {
+      await getSession();
+    })();
     setLoadingState(LoadingStatesEnum.DONE);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

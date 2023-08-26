@@ -9,6 +9,9 @@ import SocketIO from '@services/SocketIO';
 import { Icon } from './Icon';
 import { LoadingUpload } from './LoadingUpload';
 
+const ON_UPLOAD_EVENT = 'file-uploaded';
+const ON_FINISH_EVENT = 'upload-finished';
+
 export function FormUploadImages() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -20,9 +23,7 @@ export function FormUploadImages() {
   const { uploadPhotos } = useGallery();
   const { id } = useParams();
 
-  const ioClient = useMemo(() => {
-    return new SocketIO();
-  }, []);
+  const ioClient = useMemo(() => new SocketIO(), []);
 
   async function startUpload() {
     const fileElements = inputRef.current?.files;
@@ -44,6 +45,18 @@ export function FormUploadImages() {
 
     ioClient.connect();
 
+    ioClient.socket.on(ON_UPLOAD_EVENT, (bytesReceived) => {
+      // if (photosSize === 0) {
+      //   setIsUploading(false);
+      //   return;
+      // }
+      setPhotosSize((prev) => prev - bytesReceived);
+    });
+
+    ioClient.socket.on(ON_FINISH_EVENT, () => {
+      setIsUploading(false);
+    });
+
     if (id) {
       await uploadPhotos({
         id,
@@ -51,13 +64,10 @@ export function FormUploadImages() {
         socketId: ioClient.socket.id,
       });
     }
-
-    console.log(ioClient.socket.id);
   }
 
   function handleCancelUpload() {
     setIsUploading(false);
-    ioClient.socket.disconnect();
   }
 
   return (

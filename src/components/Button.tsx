@@ -10,7 +10,7 @@ const button = tv({
     size: {
       lg: 'h-14 px-7',
       md: 'h-12 px-5',
-      sm: 'h-10 px-4',
+      sm: 'h-[34px] px-4',
       tn: 'h-8 px-3 !text-body-3-regular',
     },
     fullSize: {
