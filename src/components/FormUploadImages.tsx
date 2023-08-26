@@ -53,9 +53,9 @@ export function FormUploadImages() {
       setPhotosSize((prev) => prev - bytesReceived);
     });
 
-    // ioClient.socket.on(ON_FINISH_EVENT, () => {
-    //   setIsUploading(false);
-    // });
+    ioClient.socket.on(ON_FINISH_EVENT, () => {
+      setIsUploading(false);
+    });
 
     if (id) {
       await uploadPhotos({
